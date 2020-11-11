@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2020 at 04:59 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Nov 11, 2020 at 05:15 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,8 +36,16 @@ CREATE TABLE `administrator` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `image` text NOT NULL
+  `image` text NOT NULL,
+  `user_accepted` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `first_name`, `last_name`, `address`, `image`, `user_accepted`) VALUES
+(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 'Amal', 'Lakshan', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -55,15 +64,16 @@ CREATE TABLE `boarder` (
   `address` varchar(250) NOT NULL,
   `location_link` text NOT NULL,
   `NIC` varchar(12) NOT NULL,
-  `image` text NOT NULL
+  `image` text NOT NULL,
+  `user_accepted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boarder`
 --
 
-INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`) VALUES
-(1, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Ishan', 'Edirivira', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '');
+INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `user_accepted`) VALUES
+(1, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Ishan', 'Edirivira', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', 2);
 
 -- --------------------------------------------------------
 
@@ -92,7 +102,7 @@ CREATE TABLE `boardings_owner` (
 --
 
 INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `image`, `account_no`, `user_accepted`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Amal', 'Lakshan', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 1);
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Amal', 'Lakshan', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 2);
 
 -- --------------------------------------------------------
 
