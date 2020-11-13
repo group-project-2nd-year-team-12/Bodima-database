@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2020 at 05:15 AM
+-- Generation Time: Nov 13, 2020 at 08:19 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -102,7 +101,7 @@ CREATE TABLE `boardings_owner` (
 --
 
 INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `image`, `account_no`, `user_accepted`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Amal', 'Lakshan', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 2);
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Amal', 'Lakshan', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -141,7 +140,12 @@ INSERT INTO `boarding_post` (`B_post_id`, `BOid`, `category`, `girlsBoys`, `pers
 (3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 2, 2000, ' dfsdsfs', 0),
 (4, 1, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 3, 3000, ' vfgdth', 0),
 (5, 1, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 3, 3000, 'ferge', 15000),
-(6, 1, 'individual', 'boys', 2, 3500, 20, '../resource/Images/uploaded_boarding/6.jpg', '33', 'Galle road', 'Wellawaththa', 'Colombo', 'near Colombo university', NULL, 3, 3000, 'dsefqveb', 15000);
+(6, 1, 'individual', 'boys', 2, 3500, 20, '../resource/Images/uploaded_boarding/6.jpg', '33', 'Galle road', 'Wellawaththa', 'Colombo', 'near Colombo university', NULL, 3, 3000, 'dsefqveb', 15000),
+(8, 1, 'RoomOrHome', 'Male', 4, 566, 0, '../resource/Images/uploaded_boarding/1b7bb3a3e323bb76b7551583eb3d7795.jpg', 'fffff', 'ffffffff', 'ddddddd', 'fffffff', '', 'fff', 40, 4000, 'ishan', 899),
+(9, 1, 'RoomOrHome', 'Male', 10, 6000, 0, '../resource/Images/uploaded_boarding/city-wallpaper-1.jpg', 'Pushpawila', 'KanankeKadawediya', 'Kanaknke', 'Matara', 'Near to university of Ruhuna', 'fff', 90, 9000, 'ishan', 18000),
+(10, 1, 'RoomOrHome', 'Female', 2, 6000, 0, '../resource/Images/uploaded_boarding/231322.jpg', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Colombo 07', '', 'fff', 35, 3500, 'ishan', 18000),
+(11, 1, 'RoomOrHome', 'Male', 6, 6000, 0, '../resource/Images/uploaded_boarding/', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Matara', '', 'fff', 37, 3700, 'ishan', 18000),
+(12, 1, 'RoomOrHome', 'Female', 7, 6000, 0, '../resource/Images/uploaded_boarding/', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Matara', '', 'fff', 39, 3900, 'ishan', 18000);
 
 -- --------------------------------------------------------
 
@@ -212,7 +216,7 @@ CREATE TABLE `food_post` (
   `location` text NOT NULL,
   `type` varchar(100) NOT NULL,
   `rating` int(255) NOT NULL,
-  `ordering time deadline` time NOT NULL,
+  `orderingtimedeadline` time NOT NULL,
   `lifespan` int(31) NOT NULL,
   `post_amount` int(255) NOT NULL,
   `image` text NOT NULL
@@ -222,12 +226,13 @@ CREATE TABLE `food_post` (
 -- Dumping data for table `food_post`
 --
 
-INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `ordering time deadline`, `lifespan`, `post_amount`, `image`) VALUES
+INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`) VALUES
 (2, 2, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', '', 30, '00:00:00', 3, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg'),
 (3, 4, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg'),
 (4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', '', 35, '00:00:18', 6, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg'),
 (5, 3, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', '', 35, '00:00:20', 5, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg'),
-(6, 1, 'Ranasiri Bakery', 'All bakery food dine in and delivary', 'sisil Mawatha,Wijayaraama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/bakery.jpg');
+(6, 1, 'Ranasiri Bakery', 'All bakery food dine in and delivary', 'sisil Mawatha,Wijayaraama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/bakery.jpg'),
+(7, 2, 'nimash', '', 'pushpawila kanake kadawediya,kanakke', 'dddddddd', 'Long Term', 1, '00:38:00', 39, 0, '../resource/Images/uploaded_foodpost/');
 
 -- --------------------------------------------------------
 
@@ -306,7 +311,8 @@ INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`,
 (2, 'fs1@gmail.com', '', '', 'Rasika', ' Mallikarachchi', 'food_supplier', '7834848513v', '44/4, old road, Maharagama', 0, '', 0),
 (3, 'fs2@gmail.com', '', '', 'Ajith', 'Hettige', 'food_supplier', '8834342341v', 'No: 5, Mirihana', 0, '', 0),
 (4, 'fs4@gmail.com', '', '', 'Bathiya', 'Gamahe', 'food_supplier', '765432123v', '98/B, dehiwala road, nugegoda', 0, '', 0),
-(5, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0be73e51c5a1271e14cffe7a6c64ba812e3c0101e8abecb2fd8340c8142b8297be3a3647a62eade872aaa1eeaa55d9a5ec02', 'anuki', 'Alwis', 'food_supplier', '988581682v', 'Makumbura', 0, '', 0);
+(5, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0be73e51c5a1271e14cffe7a6c64ba812e3c0101e8abecb2fd8340c8142b8297be3a3647a62eade872aaa1eeaa55d9a5ec02', 'anuki', 'Alwis', 'food_supplier', '988581682v', 'Makumbura', 0, '', 0),
+(6, 'nimosupunpraba@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd74d7d6601e2c28cb6be7934119554d50e1dfd7248da4bd6b4aa44788f2a7d48c9637549a2e6332b50f9d319605eed654145', 'Nimasha', 'Supunpraba', 'food_supplier', '967843202V', 'pushpawila kanake kadawediya,kanakke', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -424,7 +430,9 @@ INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `pric
 (12, 4, 3, 'Idli', '../resource/img/product/product1.png\r\n', 130, 0, 1, 1),
 (13, 4, 3, 'Paper Dosai', '../resource/img/product/product1.png\r\n', 260, 0, 1, 1),
 (14, 4, 3, 'Pani Puri', '../resource/img/product/product1.png\r\n', 150, 0, 1, 1),
-(15, 4, 3, 'Puri', '../resource/img/product/product1.png\r\n', 170, 0, 1, 1);
+(15, 4, 3, 'Puri', '../resource/img/product/product1.png\r\n', 170, 0, 1, 1),
+(17, 1, 4, 'kkjjk', '', 9090, 0, 1, 1),
+(18, 1, 4, 'string hoppers', '', 100, 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -630,37 +638,37 @@ ALTER TABLE `boarder`
 -- AUTO_INCREMENT for table `boardings_owner`
 --
 ALTER TABLE `boardings_owner`
-  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `boarding_post`
 --
 ALTER TABLE `boarding_post`
-  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `food_post`
 --
 ALTER TABLE `food_post`
-  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=312;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
 --
 ALTER TABLE `food_supplier`
-  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `request`
@@ -672,7 +680,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Constraints for dumped tables
