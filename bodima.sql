@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2020 at 08:19 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Generation Time: Nov 17, 2020 at 04:37 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `first_name`, `last_name`, `address`, `image`, `user_accepted`) VALUES
-(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 'Amal', 'Lakshan', '', '', 1);
+(1, 'boadima7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 'Amal', 'Lakshan', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE `boarder` (
 --
 
 INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `user_accepted`) VALUES
-(1, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Ishan', 'Edirivira', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', 2);
+(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Kavi', 'Lakshan', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,8 @@ CREATE TABLE `boardings_owner` (
 --
 
 INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `image`, `account_no`, `user_accepted`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Amal', 'Lakshan', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 1);
+(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'nimo', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', '', 0, 1),
+(3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 'aaaaaa', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -135,17 +136,11 @@ CREATE TABLE `boarding_post` (
 --
 
 INSERT INTO `boarding_post` (`B_post_id`, `BOid`, `category`, `girlsBoys`, `person_count`, `cost_per_person`, `rating`, `image`, `house_num`, `lane`, `city`, `district`, `description`, `location`, `lifespan`, `post_amount`, `review`, `keymoney`) VALUES
-(1, 1, 'individual', 'girls', 3, 6000, 45, '../resource/Images/uploaded_boarding/3.jpg', '4', 'mal mawatha', 'Dalthara', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 2, 2000, 'aada', 0),
-(2, 1, 'individual', 'boys', 4, 5500, 30, '../resource/Images/uploaded_boarding/2.jpg', '12/A', 'kammalawaththa mawatha', 'kotuwa', 'Mathara', 'near to university of Ruhuna', 'https://goo.gl/maps/AUW3hP4ryNcxPEvDA', 3, 3000, ' xdgxtdh', 0),
-(3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 2, 2000, ' dfsdsfs', 0),
-(4, 1, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 3, 3000, ' vfgdth', 0),
-(5, 1, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 3, 3000, 'ferge', 15000),
-(6, 1, 'individual', 'boys', 2, 3500, 20, '../resource/Images/uploaded_boarding/6.jpg', '33', 'Galle road', 'Wellawaththa', 'Colombo', 'near Colombo university', NULL, 3, 3000, 'dsefqveb', 15000),
-(8, 1, 'RoomOrHome', 'Male', 4, 566, 0, '../resource/Images/uploaded_boarding/1b7bb3a3e323bb76b7551583eb3d7795.jpg', 'fffff', 'ffffffff', 'ddddddd', 'fffffff', '', 'fff', 40, 4000, 'ishan', 899),
-(9, 1, 'RoomOrHome', 'Male', 10, 6000, 0, '../resource/Images/uploaded_boarding/city-wallpaper-1.jpg', 'Pushpawila', 'KanankeKadawediya', 'Kanaknke', 'Matara', 'Near to university of Ruhuna', 'fff', 90, 9000, 'ishan', 18000),
-(10, 1, 'RoomOrHome', 'Female', 2, 6000, 0, '../resource/Images/uploaded_boarding/231322.jpg', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Colombo 07', '', 'fff', 35, 3500, 'ishan', 18000),
-(11, 1, 'RoomOrHome', 'Male', 6, 6000, 0, '../resource/Images/uploaded_boarding/', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Matara', '', 'fff', 37, 3700, 'ishan', 18000),
-(12, 1, 'RoomOrHome', 'Female', 7, 6000, 0, '../resource/Images/uploaded_boarding/', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Matara', '', 'fff', 39, 3900, 'ishan', 18000);
+(1, 3, 'individual', 'girls', 3, 6000, 45, '../resource/Images/uploaded_boarding/3.jpg', '4', 'mal mawatha', 'Dalthara', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 2, 2000, 'aada', 10000),
+(2, 1, 'individual', 'boys', 4, 5500, 30, '../resource/Images/uploaded_boarding/2.jpg', '12/A', 'kammalawaththa mawatha', 'kotuwa', 'Mathara', 'near to university of Ruhuna', 'https://goo.gl/maps/AUW3hP4ryNcxPEvDA', 3, 3000, ' xdgxtdh', 8000),
+(3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 2, 2000, ' dfsdsfs', 6000),
+(4, 3, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 3, 3000, ' vfgdth', 6000),
+(5, 3, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 3, 3000, 'ferge', 15000);
 
 -- --------------------------------------------------------
 
@@ -219,7 +214,7 @@ CREATE TABLE `food_post` (
   `orderingtimedeadline` time NOT NULL,
   `lifespan` int(31) NOT NULL,
   `post_amount` int(255) NOT NULL,
-  `image` text NOT NULL
+  `image` text NOT NULL DEFAULT '../resource/Images/h1.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -227,12 +222,11 @@ CREATE TABLE `food_post` (
 --
 
 INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`) VALUES
-(2, 2, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', '', 30, '00:00:00', 3, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg'),
-(3, 4, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg'),
+(2, 1, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', '', 30, '00:00:00', 3, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg'),
+(3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg'),
 (4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', '', 35, '00:00:18', 6, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg'),
-(5, 3, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', '', 35, '00:00:20', 5, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg'),
-(6, 1, 'Ranasiri Bakery', 'All bakery food dine in and delivary', 'sisil Mawatha,Wijayaraama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/bakery.jpg'),
-(7, 2, 'nimash', '', 'pushpawila kanake kadawediya,kanakke', 'dddddddd', 'Long Term', 1, '00:38:00', 39, 0, '../resource/Images/uploaded_foodpost/');
+(5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', '', 35, '00:00:20', 5, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg'),
+(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg');
 
 -- --------------------------------------------------------
 
@@ -307,12 +301,8 @@ CREATE TABLE `food_supplier` (
 --
 
 INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `image`, `user_accepted`) VALUES
-(1, 'projectbodima4group12@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'nimasha', 'supunpraba', 'food_supplier', '0', '', 0, '', 1),
-(2, 'fs1@gmail.com', '', '', 'Rasika', ' Mallikarachchi', 'food_supplier', '7834848513v', '44/4, old road, Maharagama', 0, '', 0),
-(3, 'fs2@gmail.com', '', '', 'Ajith', 'Hettige', 'food_supplier', '8834342341v', 'No: 5, Mirihana', 0, '', 0),
-(4, 'fs4@gmail.com', '', '', 'Bathiya', 'Gamahe', 'food_supplier', '765432123v', '98/B, dehiwala road, nugegoda', 0, '', 0),
-(5, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0be73e51c5a1271e14cffe7a6c64ba812e3c0101e8abecb2fd8340c8142b8297be3a3647a62eade872aaa1eeaa55d9a5ec02', 'anuki', 'Alwis', 'food_supplier', '988581682v', 'Makumbura', 0, '', 0),
-(6, 'nimosupunpraba@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd74d7d6601e2c28cb6be7934119554d50e1dfd7248da4bd6b4aa44788f2a7d48c9637549a2e6332b50f9d319605eed654145', 'Nimasha', 'Supunpraba', 'food_supplier', '967843202V', 'pushpawila kanake kadawediya,kanakke', 0, '', 1);
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, '', 1),
+(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -418,21 +408,21 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `price`, `breakfast`, `lunch`, `dinner`) VALUES
 (1, 1, 4, 'Mixed Rice', '../resource/img/product/product1.png', 399.99, 0, 0, 0),
 (2, 1, 4, 'Chicken Rice', '../resource/img/product/product2.jpg', 299.99, 0, 0, 0),
-(3, 1, 6, 'Rice and Curry', '../resource/img/product/product3.jpg', 149.99, 0, 0, 0),
-(4, 1, 6, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
-(5, 2, 2, 'Cheese Kottu', '../resource/img/product/product1.png\r\n', 370, 0, 0, 1),
-(6, 1, 6, 'Pastry', '../resource/img/product/product1.png\r\n', 60, 1, 0, 1),
+(5, 2, 2, 'Cheese Kottu', '../resource/img/product/cheesekottu.jpg\r\n', 370, 0, 0, 1),
 (7, 3, 5, 'Chicken Rice large', '../resource/img/product/product1.png\r\n', 530, 0, 1, 1),
 (8, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
-(9, 3, 5, 'Biriani', '../resource/img/product/product1.png\r\n', 230, 0, 1, 1),
+(9, 3, 5, 'Biriani', '../resource/img/product/biriani.jpg\r\n', 230, 0, 1, 1),
 (10, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
-(11, 3, 5, 'Parata', '../resource/img/product/product1.png\r\n', 65, 0, 0, 1),
-(12, 4, 3, 'Idli', '../resource/img/product/product1.png\r\n', 130, 0, 1, 1),
-(13, 4, 3, 'Paper Dosai', '../resource/img/product/product1.png\r\n', 260, 0, 1, 1),
-(14, 4, 3, 'Pani Puri', '../resource/img/product/product1.png\r\n', 150, 0, 1, 1),
-(15, 4, 3, 'Puri', '../resource/img/product/product1.png\r\n', 170, 0, 1, 1),
-(17, 1, 4, 'kkjjk', '', 9090, 0, 1, 1),
-(18, 1, 4, 'string hoppers', '', 100, 0, 1, 0);
+(11, 3, 5, 'Parata', '../resource/img/product/parata.jpg\r\n', 65, 0, 0, 1),
+(12, 4, 3, 'Idli', '../resource/img/product/idli.jpg\r\n', 130, 0, 1, 1),
+(13, 4, 3, 'Paper Dosai', '../resource/img/product/paperdosai.jpg\r\n', 260, 0, 1, 1),
+(14, 4, 3, 'Pani Puri', '../resource/img/product/panipuri.jpg\r\n', 150, 0, 1, 1),
+(15, 4, 3, 'Puri', '../resource/img/product/puri.jpg\r\n', 170, 0, 1, 1),
+(29, 1, 21, 'pastry', '../resource/img/product/pastry.jpg', 65, 1, 0, 0),
+(30, 1, 21, 'rolls', '../resource/img/product/rolls.jpg', 50, 1, 0, 0),
+(31, 1, 21, 'sandwich', '../resource/img/product/sandwich.jpg', 100, 0, 1, 0),
+(33, 1, 21, 'burger', '../resource/img/product/burger.jpg', 70, 0, 1, 0),
+(34, 1, 21, 'patties', '../resource/img/product/patties.jpg', 45, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -460,7 +450,8 @@ INSERT INTO `request` (`request_id`, `student_email`, `BOid`, `B_post_id`, `mess
 (69, 'lakshanamal100@gmail.com', 1, 1, 'I am Ishan.I  like to get the your Dalthara boarding place and would like to request  your boarding ', 3, '2020-10-28'),
 (70, 'lakshanamal100@gmail.com', 1, 4, 'I am Ishan.I  like to get the your Maharagama boarding place and would like to request  your boardin', 4, '2020-10-29'),
 (71, 'lakshanamal100@gmail.com', 1, 2, 'I am Ishan.I  like to get the your kotuwa boarding place and would like to request  your boarding ho', 3, '2020-10-29'),
-(72, 'lakshanamal100@gmail.com', 1, 3, 'I am Ishan.I  like to get the your Moratuwa boarding place and would like to request  your boarding ', 3, '2020-10-29');
+(72, 'lakshanamal100@gmail.com', 1, 3, 'I am Ishan.I  like to get the your Moratuwa boarding place and would like to request  your boarding ', 3, '2020-10-29'),
+(73, 'projectbodima4group12@gmail.com', 1, 1, 'I am nimasha.I  like to get the your Dalthara boarding place and would like to request  your boardin', 0, '2020-11-16');
 
 -- --------------------------------------------------------
 
@@ -486,10 +477,9 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `nic`, `address`, `user_accepted`) VALUES
-(28, 'lakshanamal100@gmail.com', 'Lakshan', 'Amal', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1),
-(29, '2018cs030@stu.ucsc.cmb.ac.lk', 'ludo', 'gona', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1),
-(32, 'anu@gmail.com', 'anuki', 'aa', 'fa6977c99b809db68e1c56888ec38bd004719b39', 'bef31857c92162a73e1bb068ea0758833946fd77c53caa6461281b4ad803fadce1a7ad59fc5fc32841f5a3d16e2971c52c7e', 'student', '121225457v', '', 1),
-(33, 'anu.alwis1998@gmail.com', 'anuki', 'Alwis', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ea60071bfbe9beb7cfee26e8ed759db779eed720cce81a251ac1796c451c3cad008cfa5f11486c67d05ed9ada7c8bd4ed518', 'student', '988581682v', '', 1);
+(28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1),
+(29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1),
+(38, 'nimashasupunpraba@gmail.com', 'Nimasha', 'supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', '', 1);
 
 --
 -- Indexes for dumped tables
@@ -638,19 +628,19 @@ ALTER TABLE `boarder`
 -- AUTO_INCREMENT for table `boardings_owner`
 --
 ALTER TABLE `boardings_owner`
-  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `boarding_post`
 --
 ALTER TABLE `boarding_post`
-  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `food_post`
 --
 ALTER TABLE `food_post`
-  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `food_request`
@@ -662,25 +652,25 @@ ALTER TABLE `food_request`
 -- AUTO_INCREMENT for table `food_supplier`
 --
 ALTER TABLE `food_supplier`
-  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `request_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `request_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
