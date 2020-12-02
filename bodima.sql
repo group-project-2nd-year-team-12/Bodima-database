@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2020 at 03:02 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Dec 02, 2020 at 05:16 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -300,29 +301,8 @@ CREATE TABLE `food_request` (
 --
 
 INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `last_name`, `is_accepted`, `restaurant`, `product_name`, `quantity`, `F_post_id`, `order_id`, `total`, `phone`, `method`, `time`, `deliveredTime`) VALUES
-(286, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602417515, 850, 0, '', '00:00:00', ''),
-(287, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602417515, 850, 0, '', '00:00:00', ''),
-(288, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Rice and Curry ', 1, 2, 1602417515, 850, 0, '', '00:00:00', ''),
-(289, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602418606, 700, 0, '', '00:00:00', ''),
-(290, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602418606, 700, 0, '', '00:00:00', ''),
-(291, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602418884, 400, 0, '', '00:00:00', ''),
-(292, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602419290, 699.98, 0, '', '00:00:00', ''),
-(293, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602419290, 699.98, 0, '', '00:00:00', ''),
-(294, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602419422, 699.98, 0, '', '00:00:00', ''),
-(295, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602419422, 699.98, 0, '', '00:00:00', ''),
-(296, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602419528, 849.97, 0, '', '00:00:00', ''),
-(297, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Rice and Curry ', 1, 2, 1602419528, 849.97, 0, '', '00:00:00', ''),
-(298, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602419528, 849.97, 0, '', '00:00:00', ''),
-(299, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602422235, 849.97, 0, '', '00:00:00', ''),
-(300, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602422235, 849.97, 0, '', '00:00:00', ''),
-(301, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Rice and Curry ', 1, 2, 1602422235, 849.97, 0, '', '00:00:00', ''),
-(302, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Mixed Rice ', 1, 2, 1602422664, 699.98, 0, '', '00:00:00', ''),
-(303, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 1, '', 'Chicken Rice ', 1, 2, 1602422664, 699.98, 0, '', '00:00:00', ''),
-(304, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 0, '', 'Mixed Rice ', 1, 2, 1602423068, 849.97, 0, '', '00:00:00', ''),
-(305, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 0, '', 'Chicken Rice ', 1, 2, 1602423068, 849.97, 0, '', '00:00:00', ''),
-(306, 'lakshanamal100@gmail.com', '310/1, Delgasduwa,Dodanduwa', 'Ishan', 'Resmika', 0, '', 'Rice and Curry ', 1, 2, 1602423068, 849.97, 0, '', '00:00:00', ''),
-(313, '2018cs165@stu.ucsc.cmb.ac.lk', 'matara', 'Supunpraba', 'nimo', 0, '', 'Rasika Food Delivary Service', 1, 2, 1606037943, 430, 0, '', '00:00:00', ''),
-(314, '2018cs165@stu.ucsc.cmb.ac.lk', 'matara', 'Supunpraba', 'nimo', 0, '', 'Sri Ragavas Restaurant', 1, 3, 1606037971, 130, 0, '', '00:00:00', '');
+(345, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 4, 'Rasika Food Delivary Service', 'Cheese Kottu ', 1, 2, 1606295811, 370, 755535393, 'card', '02:46:51', '02:48:22pm'),
+(346, 'boadima7@gmail.com', '67/2,panvila,hikkaduwa', 'Amal', 'Lakshan', 0, 'Rasika Food Delivary Service', 'Cheese Kottu ', 1, 2, 1606296497, 370, 755535393, 'card', '02:58:17', '');
 
 -- --------------------------------------------------------
 
@@ -455,9 +435,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `price`, `breakfast`, `lunch`, `dinner`) VALUES
-(1, 1, 4, 'Mixed Rice', '../resource/img/product/product1.png', 399.99, 0, 0, 0),
-(2, 1, 4, 'Chicken Rice', '../resource/img/product/product2.jpg', 299.99, 0, 0, 0),
-(5, 2, 2, 'Cheese Kottu', '../resource/img/product/cheesekottu.jpg\r\n', 370, 0, 0, 1),
+(1, 1, 4, 'Mixed Rice', '../resource/img/product/product1.png', 399.99, 1, 1, 0),
+(2, 1, 4, 'Chicken Rice', '../resource/img/product/product2.jpg', 299.99, 1, 0, 1),
+(5, 2, 2, 'Cheese Kottu', '../resource/img/product/cheesekottu.jpg\r\n', 370, 1, 0, 1),
 (7, 3, 5, 'Chicken Rice large', '../resource/img/product/product1.png\r\n', 530, 0, 1, 1),
 (8, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
 (9, 3, 5, 'Biriani', '../resource/img/product/biriani.jpg\r\n', 230, 0, 1, 1),
@@ -503,7 +483,8 @@ INSERT INTO `request` (`request_id`, `student_email`, `BOid`, `B_post_id`, `mess
 (103, 'thinuli@gmail.com', 3, 1, '', 3, '2020-11-23 17:11:53'),
 (104, 'yamuna@gmail.com', 3, 1, '', 3, '2020-11-23 17:15:42'),
 (105, 'reshmikaediriweera1997@gmail.com', 1, 2, '', 0, '2020-11-23 19:47:26'),
-(106, 'reshmikaediriweera1997@gmail.com', 3, 5, '', 0, '2020-11-23 19:49:18');
+(106, 'reshmikaediriweera1997@gmail.com', 3, 5, '', 1, '2020-11-23 19:49:18'),
+(107, '2018cs139@stu.ucsc.cmb.ac.lk', 3, 1, '', 0, '2020-11-25 08:15:04');
 
 -- --------------------------------------------------------
 
@@ -519,7 +500,7 @@ CREATE TABLE `student` (
   `password` varchar(100) NOT NULL,
   `token` varchar(100) NOT NULL,
   `level` varchar(50) NOT NULL DEFAULT 'student',
-  `nic` varchar(15) NOT NULL,
+  `NIC` varchar(15) NOT NULL,
   `address` varchar(250) NOT NULL,
   `user_accepted` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -528,7 +509,7 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `nic`, `address`, `user_accepted`) VALUES
+INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`) VALUES
 (28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1),
 (29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1),
 (38, 'nimashasupunpraba@gmail.com', 'Nimasha', 'supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', '', 1),
@@ -723,7 +704,7 @@ ALTER TABLE `food_post`
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=315;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=347;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
@@ -741,7 +722,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `request_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `request_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `student`
