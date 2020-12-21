@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2020 at 07:35 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Dec 21, 2020 at 10:57 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `administrator` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `image` text NOT NULL,
+  `profileimage` text NOT NULL,
   `user_accepted` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -43,7 +43,7 @@ CREATE TABLE `administrator` (
 -- Dumping data for table `administrator`
 --
 
-INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `first_name`, `last_name`, `address`, `image`, `user_accepted`) VALUES
+INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `first_name`, `last_name`, `address`, `profileimage`, `user_accepted`) VALUES
 (1, 'boadima7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 'Amal', 'Lakshan', '', '', 1);
 
 -- --------------------------------------------------------
@@ -67,21 +67,22 @@ CREATE TABLE `boarder` (
   `institute` varchar(40) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `telephone` text NOT NULL,
-  `user_accepted` int(1) NOT NULL
+  `user_accepted` int(1) NOT NULL,
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boarder`
 --
 
-INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`) VALUES
-(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Kavi', 'Lakshan', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', '', '', '', 1),
-(37, 'diyana@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'Diyana', 'Fernando', 'boarder', '  ', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715822454', 1),
-(38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1),
-(39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  ', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1),
-(40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1),
-(47, 'nelara@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'nelara', 'sanviduni', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Girl', '0715822454', 0),
-(48, 'banda@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'banda', 'aaa', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Boy', '0715822454', 1);
+INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`, `profileimage`) VALUES
+(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Kavi', 'Lakshan', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', '', '', '', 1, '../resource/Images/c.jpg'),
+(37, 'diyana@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'Diyana', 'Fernando', 'boarder', '  ', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715822454', 1, '../resource/Images/b.jpg'),
+(38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1, '../resource/Images/a.jpg'),
+(39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  ', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1, '../resource/Images/b.jpg'),
+(40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1, '../resource/Images/a.jpg'),
+(47, 'nelara@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'nelara', 'sanviduni', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Girl', '0715822454', 0, '../resource/Images/a.jpg'),
+(48, 'banda@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'banda', 'aaa', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,16 +127,17 @@ CREATE TABLE `boardings_owner` (
   `address` varchar(250) NOT NULL,
   `location_link` text NOT NULL,
   `account_no` int(11) NOT NULL,
-  `user_accepted` int(1) NOT NULL
+  `user_accepted` int(1) NOT NULL,
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boardings_owner`
 --
 
-INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `account_no`, `user_accepted`) VALUES
-(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'nimo', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', 0, 1),
-(3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 'aaaaaa', 0, 1);
+INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `account_no`, `user_accepted`, `profileimage`) VALUES
+(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'nimo', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', 0, 1, '../resource/Images/b.jpg'),
+(3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 'aaaaaa', 0, 1, '../resource/Images/a.jpg');
 
 -- --------------------------------------------------------
 
@@ -327,17 +329,17 @@ CREATE TABLE `food_supplier` (
   `NIC` varchar(12) NOT NULL,
   `address` varchar(250) NOT NULL,
   `location_link` int(11) NOT NULL,
-  `image` text NOT NULL,
-  `user_accepted` int(1) NOT NULL
+  `user_accepted` int(1) NOT NULL,
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food_supplier`
 --
 
-INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `image`, `user_accepted`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, '', 1),
-(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, '', 1);
+INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`) VALUES
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg'),
+(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg');
 
 -- --------------------------------------------------------
 
@@ -505,24 +507,25 @@ CREATE TABLE `student` (
   `level` varchar(50) NOT NULL DEFAULT 'student',
   `NIC` varchar(15) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `user_accepted` int(2) NOT NULL
+  `user_accepted` int(2) NOT NULL,
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`) VALUES
-(28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1),
-(29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1),
-(38, 'nimashasupunpraba@gmail.com', 'Nimasha', 'supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', '', 1),
-(39, 'diyana@gmail.com', 'Diyana', 'Fernando', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'student', '970920918v', '', 3),
-(40, 'ramya@gmail.com', 'Ramya', 'Rajapaksha', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'student', '966661788v', '', 3),
-(41, 'thinuli@gmail.com', 'Thinuli', 'Gothatuwa', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'student', '966611444v', '', 3),
-(42, 'yamuna@gmail.com', 'Yamuna', 'Rajakaruna', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'student', '966511965v', '', 3),
-(43, 'dilshan@gmail.com', 'dilshan', 'lakshitha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '09e629a6f8776b583f8da63422ca519f8f668af9f39f05c246d8039218340552057c7ea67a3e56974beea5c9629b7c67457b', 'student', '940900918v', '', 1),
-(44, 'nelara@gmail.com', 'nelara', 'sanviduni', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'student', '970900918v', '', 1),
-(45, 'banda@gmail.com', 'banda', 'aaa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'student', '960900988v', '', 3);
+INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`, `profileimage`) VALUES
+(28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1, '../resource/Images/d.jpg'),
+(29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1, '../resource/Images/d.jpg'),
+(38, 'nimashasupunpraba@gmail.com', 'Nimasha', 'supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', '', 1, '../resource/Images/a.jpg'),
+(39, 'diyana@gmail.com', 'Diyana', 'Fernando', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'student', '970920918v', '', 3, '../resource/Images/b.jpg'),
+(40, 'ramya@gmail.com', 'Ramya', 'Rajapaksha', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'student', '966661788v', '', 3, '../resource/Images/a.jpg'),
+(41, 'thinuli@gmail.com', 'Thinuli', 'Gothatuwa', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'student', '966611444v', '', 3, '../resource/Images/a.jpg'),
+(42, 'yamuna@gmail.com', 'Yamuna', 'Rajakaruna', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'student', '966511965v', '', 3, '../resource/Images/a.jpg'),
+(43, 'dilshan@gmail.com', 'dilshan', 'lakshitha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '09e629a6f8776b583f8da63422ca519f8f668af9f39f05c246d8039218340552057c7ea67a3e56974beea5c9629b7c67457b', 'student', '940900918v', '', 1, '../resource/Images/c.jpg'),
+(44, 'nelara@gmail.com', 'nelara', 'sanviduni', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'student', '970900918v', '', 1, '../resource/Images/a.jpg'),
+(45, 'banda@gmail.com', 'banda', 'aaa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'student', '960900988v', '', 3, '../resource/Images/d.jpg');
 
 --
 -- Indexes for dumped tables
