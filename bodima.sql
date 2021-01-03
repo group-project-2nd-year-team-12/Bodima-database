@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2020 at 10:57 AM
+-- Generation Time: Jan 03, 2021 at 05:42 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -76,8 +76,7 @@ CREATE TABLE `boarder` (
 --
 
 INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`, `profileimage`) VALUES
-(1, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9a8bb46e0aac76114827acd508909787ec251ec0c2aa2fb861412cf1689a4ddba70f506c9afa0643d93b24e44c472661643c', 'Kavi', 'Lakshan', 'boarder', '310/1, Delgasduwa,Dodanduwa', '', '', '', '', '', '', 1, '../resource/Images/c.jpg'),
-(37, 'diyana@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'Diyana', 'Fernando', 'boarder', '  ', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715822454', 1, '../resource/Images/b.jpg'),
+(37, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'kavindya', 'Lakshan', 'boarder', '  ', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg'),
 (38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1, '../resource/Images/a.jpg'),
 (39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  ', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1, '../resource/Images/b.jpg'),
 (40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1, '../resource/Images/a.jpg'),
@@ -136,7 +135,7 @@ CREATE TABLE `boardings_owner` (
 --
 
 INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `account_no`, `user_accepted`, `profileimage`) VALUES
-(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'nimo', 'boardings_owner', '', '310/1 ,Delgasduwa, Dodanduwa', '', 0, 1, '../resource/Images/b.jpg'),
+(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'nimo', 'boardings_owner', '', '310/1 ,Delgasduwa, Nuwaraeliya', '', 0, 1, '../resource/Images/b.jpg'),
 (3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 'aaaaaa', 0, 1, '../resource/Images/a.jpg');
 
 -- --------------------------------------------------------
@@ -228,10 +227,10 @@ CREATE TABLE `confirm_rent` (
 
 INSERT INTO `confirm_rent` (`rent_id`, `request_id`, `Bid`, `BOid`, `B_post_id`, `is_paid`, `keymoneyAmount`, `payment_method`, `payment_date`, `agreement`) VALUES
 (24, 101, 37, 3, 1, 1, 10000, 'online', '2020-12-16 18:30:35', ' '),
-(25, 102, 38, 3, 1, 1, 10000, 'online', '2020-12-16 18:31:03', ' '),
-(26, 103, 39, 3, 1, 1, 10000, 'online', '2020-12-16 18:31:12', ' '),
-(27, 104, 40, 3, 1, 1, 10000, 'online', '2020-12-16 18:31:20', ' '),
-(34, 121, 47, 3, 1, 0, 10000, 'hand', '2020-12-17 05:06:43', ' '),
+(25, 102, 38, 3, 4, 1, 10000, 'online', '2020-12-22 12:35:51', ' '),
+(26, 103, 39, 1, 1, 1, 10000, 'online', '2020-12-22 00:17:58', ' '),
+(27, 104, 40, 3, 5, 1, 10000, 'online', '2020-12-22 12:36:05', ' '),
+(34, 121, 47, 1, 1, 0, 10000, 'hand', '2020-12-22 00:18:32', ' '),
 (35, 122, 48, 3, 1, 1, 10000, 'online', '2020-12-18 18:34:21', ' ');
 
 -- --------------------------------------------------------
@@ -412,13 +411,48 @@ INSERT INTO `order_details` (`marchent_id`, `order_id`, `pay_amount`, `pay_curre
 --
 
 CREATE TABLE `payfee` (
+  `payid` int(11) NOT NULL,
   `Bid` int(11) NOT NULL,
   `BOid` int(11) NOT NULL,
-  `year/month` int(11) NOT NULL,
+  `year` int(4) DEFAULT NULL,
+  `month` int(12) NOT NULL,
   `amount` int(11) NOT NULL,
-  `cash/card` int(11) NOT NULL,
-  `dateTime` datetime NOT NULL
+  `paidDateTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `cash/card` varchar(11) NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payfee`
+--
+
+INSERT INTO `payfee` (`payid`, `Bid`, `BOid`, `year`, `month`, `amount`, `paidDateTime`, `cash/card`) VALUES
+(1, 1, 1, 2021, 3, 4000, '2021-01-02 16:04:23', 'cash'),
+(2, 37, 3, 2020, 1, 4000, '2021-01-02 16:13:13', 'online'),
+(3, 40, 3, 2020, 9, 4000, '2021-01-02 16:13:21', 'None'),
+(4, 48, 3, 2020, 6, 5000, '2021-01-02 16:22:07', 'online'),
+(5, 39, 1, 2020, 7, 4000, '2021-01-02 16:22:43', 'None'),
+(6, 40, 3, 2020, 11, 4000, '2021-01-02 16:27:16', 'cash'),
+(7, 48, 3, 2020, 4, 4040, '2021-01-02 16:47:09', 'cash'),
+(8, 37, 3, 2020, 4, 5050, '2021-01-02 16:50:12', 'cash'),
+(30, 38, 3, 2020, 8, 5050, '2021-01-02 17:25:58', 'cash'),
+(31, 39, 1, 2020, 6, 5050, '2021-01-02 17:30:10', 'cash'),
+(32, 40, 3, 2020, 8, 5050, '2021-01-02 17:30:12', 'cash'),
+(33, 47, 1, 2020, 3, 5050, '2021-01-02 17:30:13', 'cash'),
+(34, 48, 3, 2020, 7, 5050, '2021-01-02 17:48:53', 'cash'),
+(35, 37, 3, 2020, 3, 5050, '2021-01-02 17:48:59', 'cash'),
+(36, 39, 1, 2020, 4, 5050, '2021-01-02 17:49:20', 'cash'),
+(37, 38, 3, 2020, 7, 5050, '2021-01-02 17:49:35', 'cash'),
+(38, 40, 3, 2020, 10, 5050, '2021-01-02 17:54:16', 'cash'),
+(39, 47, 1, 2020, 2, 5050, '2021-01-02 17:54:21', 'cash'),
+(40, 48, 3, 2020, 5, 5050, '2021-01-02 17:54:24', 'cash'),
+(41, 37, 3, 2020, 2, 5050, '2021-01-02 17:54:27', 'cash'),
+(42, 38, 3, 2020, 6, 5050, '2021-01-02 17:54:31', 'cash'),
+(43, 39, 1, 2020, 5, 5050, '2021-01-02 17:54:34', 'cash'),
+(44, 5, 5, 2005, 5, 5050, '2021-01-03 07:43:24', 'cash'),
+(45, 5, 5, 2005, 5, 5050, '2021-01-03 07:44:40', 'cash'),
+(46, 5, 5, 2005, 5, 5050, '2021-01-03 07:44:43', 'cash'),
+(47, 5, 5, 2005, 5, 5050, '2021-01-03 07:44:43', 'cash'),
+(48, 5, 5, 2005, 5, 5050, '2021-01-03 07:44:46', 'cash');
 
 -- --------------------------------------------------------
 
@@ -518,7 +552,7 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`, `profileimage`) VALUES
 (28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', '', 1, '../resource/Images/d.jpg'),
 (29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1, '../resource/Images/d.jpg'),
-(38, 'nimashasupunpraba@gmail.com', 'Nimasha', 'supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', '', 1, '../resource/Images/a.jpg'),
+(38, 'nimashasupunpraba@gmail.com', 'Nimashaa', 'Supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', 'dalthara', 1, '../resource/Images/a.jpg'),
 (39, 'diyana@gmail.com', 'Diyana', 'Fernando', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'student', '970920918v', '', 3, '../resource/Images/b.jpg'),
 (40, 'ramya@gmail.com', 'Ramya', 'Rajapaksha', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'student', '966661788v', '', 3, '../resource/Images/a.jpg'),
 (41, 'thinuli@gmail.com', 'Thinuli', 'Gothatuwa', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'student', '966611444v', '', 3, '../resource/Images/a.jpg'),
@@ -645,6 +679,12 @@ ALTER TABLE `orderfoodboardingowner`
   ADD KEY `F_post_id` (`F_post_id`);
 
 --
+-- Indexes for table `payfee`
+--
+ALTER TABLE `payfee`
+  ADD PRIMARY KEY (`payid`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -680,7 +720,7 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `boarder`
 --
 ALTER TABLE `boarder`
-  MODIFY `Bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `Bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `boarderparent`
@@ -723,6 +763,12 @@ ALTER TABLE `food_request`
 --
 ALTER TABLE `food_supplier`
   MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `payfee`
+--
+ALTER TABLE `payfee`
+  MODIFY `payid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `product`
