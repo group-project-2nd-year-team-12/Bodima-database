@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2021 at 05:42 PM
+-- Generation Time: Jan 05, 2021 at 02:40 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -76,7 +76,7 @@ CREATE TABLE `boarder` (
 --
 
 INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`, `profileimage`) VALUES
-(37, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'kavindya', 'Lakshan', 'boarder', '  ', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg'),
+(37, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'kavindya', 'Lakshan', 'boarder', ' Mathara', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg'),
 (38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1, '../resource/Images/a.jpg'),
 (39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  ', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1, '../resource/Images/b.jpg'),
 (40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1, '../resource/Images/a.jpg'),
@@ -343,6 +343,25 @@ INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `notify_id` int(11) NOT NULL,
+  `type_number` int(11) NOT NULL,
+  `from_level` varchar(50) NOT NULL,
+  `from_id` int(11) NOT NULL,
+  `to_level` varchar(50) NOT NULL,
+  `to_id` int(11) NOT NULL,
+  `massageHeader` text NOT NULL,
+  `massage` text NOT NULL,
+  `sendDateTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `is_seen` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ordereditems`
 --
 
@@ -528,6 +547,21 @@ INSERT INTO `request` (`request_id`, `student_email`, `BOid`, `B_post_id`, `mess
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `set_notification`
+--
+
+CREATE TABLE `set_notification` (
+  `set_id` int(11) NOT NULL,
+  `from_BOid` int(11) NOT NULL,
+  `to_Bid` int(11) NOT NULL,
+  `setdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `occurance` int(11) NOT NULL,
+  `massage` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -656,6 +690,12 @@ ALTER TABLE `food_supplier`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`notify_id`);
+
+--
 -- Indexes for table `ordereditems`
 --
 ALTER TABLE `ordereditems`
@@ -699,6 +739,14 @@ ALTER TABLE `request`
   ADD PRIMARY KEY (`request_id`),
   ADD KEY `fk_boid` (`BOid`),
   ADD KEY `fk_b_post_id` (`B_post_id`);
+
+--
+-- Indexes for table `set_notification`
+--
+ALTER TABLE `set_notification`
+  ADD PRIMARY KEY (`set_id`),
+  ADD KEY `from_BOid` (`from_BOid`),
+  ADD KEY `to_Bid` (`to_Bid`);
 
 --
 -- Indexes for table `student`
@@ -765,6 +813,12 @@ ALTER TABLE `food_supplier`
   MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payfee`
 --
 ALTER TABLE `payfee`
@@ -781,6 +835,12 @@ ALTER TABLE `product`
 --
 ALTER TABLE `request`
   MODIFY `request_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+
+--
+-- AUTO_INCREMENT for table `set_notification`
+--
+ALTER TABLE `set_notification`
+  MODIFY `set_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -882,6 +942,13 @@ ALTER TABLE `product`
 ALTER TABLE `request`
   ADD CONSTRAINT `fk_b_post_id` FOREIGN KEY (`B_post_id`) REFERENCES `boarding_post` (`B_post_id`),
   ADD CONSTRAINT `fk_boid` FOREIGN KEY (`BOid`) REFERENCES `boardings_owner` (`BOid`);
+
+--
+-- Constraints for table `set_notification`
+--
+ALTER TABLE `set_notification`
+  ADD CONSTRAINT `set_notification_ibfk_1` FOREIGN KEY (`from_BOid`) REFERENCES `boardings_owner` (`BOid`),
+  ADD CONSTRAINT `set_notification_ibfk_2` FOREIGN KEY (`to_Bid`) REFERENCES `boarder` (`Bid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
