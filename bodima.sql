@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2021 at 02:40 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Jan 10, 2021 at 08:10 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -291,15 +292,16 @@ CREATE TABLE `food_request` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `is_accepted` int(1) NOT NULL,
+  `term` varchar(10) NOT NULL DEFAULT 'shortTerm',
+  `order_type` varchar(10) NOT NULL,
   `restaurant` varchar(50) NOT NULL,
-  `product_name` varchar(50) NOT NULL,
-  `quantity` int(25) NOT NULL,
   `F_post_id` int(11) NOT NULL,
   `order_id` int(50) NOT NULL,
   `total` double NOT NULL,
   `phone` int(20) NOT NULL,
   `method` varchar(10) NOT NULL,
-  `time` time NOT NULL,
+  `time` datetime NOT NULL,
+  `expireTime` datetime NOT NULL,
   `deliveredTime` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -307,9 +309,14 @@ CREATE TABLE `food_request` (
 -- Dumping data for table `food_request`
 --
 
-INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `last_name`, `is_accepted`, `restaurant`, `product_name`, `quantity`, `F_post_id`, `order_id`, `total`, `phone`, `method`, `time`, `deliveredTime`) VALUES
-(345, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 4, 'Rasika Food Delivary Service', 'Cheese Kottu ', 1, 2, 1606295811, 370, 755535393, 'card', '02:46:51', '02:48:22pm'),
-(346, 'boadima7@gmail.com', '67/2,panvila,hikkaduwa', 'Amal', 'Lakshan', 0, 'Rasika Food Delivary Service', 'Cheese Kottu ', 1, 2, 1606296497, 370, 755535393, 'card', '02:58:17', '');
+INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `last_name`, `is_accepted`, `term`, `order_type`, `restaurant`, `F_post_id`, `order_id`, `total`, `phone`, `method`, `time`, `expireTime`, `deliveredTime`) VALUES
+(704, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 3, 'longTerm', 'lunch', 'Rasika Food Delivary Service', 2, 1609939764, 750, 755535393, 'cash', '2021-01-06 18:59:24', '2021-01-06 19:19:24', ''),
+(708, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 2, 'shortTerm', 'breakfast', 'Rasika Food Delivary Service', 2, 1610014688, 1200, 755535393, 'card', '2021-01-07 15:48:08', '2021-01-07 16:08:08', ''),
+(709, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 3, 'shortTerm', 'breakfast', 'Rasika Food Delivary Service', 2, 1610019429, 1500, 755535393, 'cash', '2021-01-07 17:07:09', '2021-01-07 17:27:09', ''),
+(711, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 1, 'shortTerm', 'breakfast', 'Rasika Food Delivary Service', 2, 1610037594, 1730, 755535393, 'card', '2021-01-07 22:09:54', '2021-01-07 22:29:54', ''),
+(714, 'lakshanamal100@gmail.com', '310/1,deldasduwa,dodanduwa', 'Kavi', 'Lakshan', 1, 'shortTerm', 'lunch', 'Rasika Food Delivary Service', 2, 1610217483, 230, 755535399, 'card', '2021-01-10 00:08:03', '2021-01-10 00:28:03', ''),
+(715, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 1, 'shortTerm', 'breakfast', 'Rasika Food Delivary Service', 2, 1610224461, 600, 755535393, 'card', '2021-01-10 02:04:21', '2021-01-10 02:24:21', ''),
+(716, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'Kavi', 'Lakshan', 1, 'shortTerm', 'breakfast', 'Rasika Food Delivary Service', 2, 1610224920, 600, 755535393, 'card', '2021-01-10 02:12:00', '2021-01-10 02:32:00', '');
 
 -- --------------------------------------------------------
 
@@ -329,16 +336,76 @@ CREATE TABLE `food_supplier` (
   `address` varchar(250) NOT NULL,
   `location_link` int(11) NOT NULL,
   `user_accepted` int(1) NOT NULL,
-  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg',
+  `available` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food_supplier`
 --
 
-INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg'),
-(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg');
+INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`, `available`) VALUES
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 0),
+(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `longterm`
+--
+
+CREATE TABLE `longterm` (
+  `ltID` int(11) NOT NULL,
+  `day` datetime NOT NULL,
+  `delivery_state` int(1) NOT NULL,
+  `deliveredTime` datetime NOT NULL,
+  `order_id` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `longterm`
+--
+
+INSERT INTO `longterm` (`ltID`, `day`, `delivery_state`, `deliveredTime`, `order_id`) VALUES
+(459, '2021-01-06 00:00:00', 1, '2021-01-06 21:15:04', 1609939764),
+(460, '2021-01-09 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(461, '2021-01-10 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(462, '2021-01-11 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(463, '2021-01-12 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(464, '2021-01-13 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(465, '2021-01-14 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(466, '2021-01-15 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(467, '2021-01-16 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(468, '2021-01-17 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(469, '2021-01-18 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(470, '2021-01-19 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(471, '2021-01-20 00:00:00', 0, '0000-00-00 00:00:00', 1609939764),
+(472, '2021-01-21 00:00:00', 0, '0000-00-00 00:00:00', 1609939764);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notification`
+--
+
+CREATE TABLE `notification` (
+  `noID` int(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `title` varchar(25) NOT NULL,
+  `discription` varchar(100) NOT NULL,
+  `time` time NOT NULL,
+  `seen_state` int(1) NOT NULL,
+  `type` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`noID`, `email`, `title`, `discription`, `time`, `seen_state`, `type`) VALUES
+(1, 'lakshanamal100@gmail.com', 'Your order Accpeted', '', '00:10:19', 0, 'order'),
+(2, 'lakshanamal100@gmail.com', 'Your order Accpeted', 'Order id :1610224461', '02:04:26', 1, 'accept'),
+(3, 'lakshanamal100@gmail.com', 'Your order Accpeted', 'Order id :1610224920', '02:12:08', 0, 'order');
 
 -- --------------------------------------------------------
 
@@ -421,7 +488,44 @@ CREATE TABLE `order_details` (
 
 INSERT INTO `order_details` (`marchent_id`, `order_id`, `pay_amount`, `pay_currency`, `status_code`, `md5sig`) VALUES
 (456, 0, 0, '', 0, ''),
+(456, 0, 0, '', 0, ''),
+(456, 0, 0, '', 0, ''),
 (456, 0, 0, '', 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_item`
+--
+
+CREATE TABLE `order_item` (
+  `itemID` int(11) NOT NULL,
+  `item_name` varchar(20) DEFAULT NULL,
+  `quantity` int(10) NOT NULL,
+  `order_id` int(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`itemID`, `item_name`, `quantity`, `order_id`) VALUES
+(159, 'Biriani ', 3, 1609939764),
+(160, 'Cheese Kottu ', 2, 1609939764),
+(161, 'Nasi goreng Rice ', 2, 1609939764),
+(168, 'Biriani ', 2, 1610014688),
+(169, 'Cheese Kottu ', 2, 1610014688),
+(170, 'Biriani ', 2, 1610019429),
+(171, 'Cheese Kottu ', 2, 1610019429),
+(172, 'Nasi goreng Rice ', 2, 1610019429),
+(175, 'Biriani ', 3, 1610037594),
+(176, 'Cheese Kottu ', 2, 1610037594),
+(177, 'Nasi goreng Rice ', 2, 1610037594),
+(182, 'Biriani ', 1, 1610217483),
+(183, 'Biriani ', 1, 1610224461),
+(184, 'Cheese Kottu ', 1, 1610224461),
+(185, 'Biriani ', 1, 1610224920),
+(186, 'Cheese Kottu ', 1, 1610224920);
 
 -- --------------------------------------------------------
 
@@ -690,6 +794,19 @@ ALTER TABLE `food_supplier`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `longterm`
+--
+ALTER TABLE `longterm`
+  ADD PRIMARY KEY (`ltID`),
+  ADD KEY `fk1` (`order_id`);
+
+--
+-- Indexes for table `notification`
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`noID`);
+
+--
 -- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
@@ -717,6 +834,13 @@ ALTER TABLE `orderfoodboardingowner`
   ADD KEY `BOid` (`BOid`),
   ADD KEY `FSid` (`FSid`),
   ADD KEY `F_post_id` (`F_post_id`);
+
+--
+-- Indexes for table `order_item`
+--
+ALTER TABLE `order_item`
+  ADD PRIMARY KEY (`itemID`),
+  ADD KEY `fk2` (`order_id`);
 
 --
 -- Indexes for table `payfee`
@@ -804,7 +928,7 @@ ALTER TABLE `food_post`
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=347;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=717;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
@@ -813,10 +937,28 @@ ALTER TABLE `food_supplier`
   MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `longterm`
+--
+ALTER TABLE `longterm`
+  MODIFY `ltID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=480;
+
+--
+-- AUTO_INCREMENT for table `notification`
+--
+ALTER TABLE `notification`
+  MODIFY `noID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
   MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_item`
+--
+ALTER TABLE `order_item`
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 
 --
 -- AUTO_INCREMENT for table `payfee`
@@ -929,6 +1071,12 @@ ALTER TABLE `orderfoodboardingowner`
   ADD CONSTRAINT `orderfoodboardingowner_ibfk_1` FOREIGN KEY (`BOid`) REFERENCES `boardings_owner` (`BOid`),
   ADD CONSTRAINT `orderfoodboardingowner_ibfk_2` FOREIGN KEY (`FSid`) REFERENCES `food_supplier` (`FSid`),
   ADD CONSTRAINT `orderfoodboardingowner_ibfk_3` FOREIGN KEY (`F_post_id`) REFERENCES `food_post` (`F_post_id`);
+
+--
+-- Constraints for table `order_item`
+--
+ALTER TABLE `order_item`
+  ADD CONSTRAINT `fk2` FOREIGN KEY (`order_id`) REFERENCES `food_request` (`order_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `product`
