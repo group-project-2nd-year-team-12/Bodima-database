@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2021 at 08:10 AM
+-- Generation Time: Jan 11, 2021 at 04:27 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -347,6 +346,19 @@ CREATE TABLE `food_supplier` (
 INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`, `available`) VALUES
 (1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 0),
 (7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `image`
+--
+
+CREATE TABLE `image` (
+  `imgid` int(100) NOT NULL,
+  `boid` int(100) NOT NULL,
+  `postid` int(100) NOT NULL,
+  `image_name` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '../resource/Images/h1.jpg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -794,6 +806,14 @@ ALTER TABLE `food_supplier`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `image`
+--
+ALTER TABLE `image`
+  ADD PRIMARY KEY (`imgid`),
+  ADD KEY `Test` (`boid`),
+  ADD KEY `Test1` (`postid`);
+
+--
 -- Indexes for table `longterm`
 --
 ALTER TABLE `longterm`
@@ -937,6 +957,12 @@ ALTER TABLE `food_supplier`
   MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `image`
+--
+ALTER TABLE `image`
+  MODIFY `imgid` int(100) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `longterm`
 --
 ALTER TABLE `longterm`
@@ -1049,6 +1075,13 @@ ALTER TABLE `food_post`
 --
 ALTER TABLE `food_request`
   ADD CONSTRAINT `food_request_ibfk_1` FOREIGN KEY (`F_post_id`) REFERENCES `food_post` (`F_post_id`);
+
+--
+-- Constraints for table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `Test` FOREIGN KEY (`boid`) REFERENCES `boardings_owner` (`BOid`),
+  ADD CONSTRAINT `Test1` FOREIGN KEY (`postid`) REFERENCES `boarding_post` (`B_post_id`);
 
 --
 -- Constraints for table `ordereditems`
