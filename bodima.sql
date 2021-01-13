@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2021 at 07:45 PM
+-- Generation Time: Jan 13, 2021 at 08:08 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -361,6 +362,29 @@ CREATE TABLE `image` (
   `postid` int(100) NOT NULL,
   `image_name` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '../resource/Images/h1.jpg'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `livesupport`
+--
+
+CREATE TABLE `livesupport` (
+  `cId` int(11) NOT NULL,
+  `admin` varchar(50) NOT NULL DEFAULT 'boadima7@gmail.com',
+  `user` varchar(50) NOT NULL,
+  `sender` varchar(50) NOT NULL,
+  `sender_name` varchar(20) NOT NULL,
+  `message` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `livesupport`
+--
+
+INSERT INTO `livesupport` (`cId`, `admin`, `user`, `sender`, `sender_name`, `message`) VALUES
+(171, 'boadima7@gmail.com', '2018cs092@stu.ucsc.cmb.ac.lk', 'boadima7@gmail.com', 'Amal Lakshan', 'What can i do for you ?'),
+(172, 'boadima7@gmail.com', '2018cs092@stu.ucsc.cmb.ac.lk', '2018cs092@stu.ucsc.cmb.ac.lk', 'anuki De Alwis', 'how can i place a order ?');
 
 -- --------------------------------------------------------
 
@@ -816,6 +840,12 @@ ALTER TABLE `image`
   ADD KEY `Test1` (`postid`);
 
 --
+-- Indexes for table `livesupport`
+--
+ALTER TABLE `livesupport`
+  ADD PRIMARY KEY (`cId`);
+
+--
 -- Indexes for table `longterm`
 --
 ALTER TABLE `longterm`
@@ -963,6 +993,12 @@ ALTER TABLE `food_supplier`
 --
 ALTER TABLE `image`
   MODIFY `imgid` int(100) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `livesupport`
+--
+ALTER TABLE `livesupport`
+  MODIFY `cId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT for table `longterm`
