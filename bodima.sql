@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2021 at 08:08 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Jan 16, 2021 at 04:20 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -267,19 +266,21 @@ CREATE TABLE `food_post` (
   `orderingtimedeadline` time NOT NULL,
   `lifespan` int(31) NOT NULL,
   `post_amount` int(255) NOT NULL,
-  `image` text NOT NULL DEFAULT '../resource/Images/h1.jpg'
+  `image` text NOT NULL DEFAULT '../resource/Images/h1.jpg',
+  `posted_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `blocked` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food_post`
 --
 
-INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`) VALUES
-(2, 1, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', '', 30, '00:00:00', 3, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg'),
-(3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', '', 35, '00:00:20', 6, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg'),
-(4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', '', 35, '00:00:18', 6, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg'),
-(5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', '', 35, '00:00:20', 5, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg'),
-(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg');
+INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`, `posted_date`, `blocked`) VALUES
+(2, 1, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', 'Both', 30, '00:00:00', 60, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg', '2021-01-14 11:42:42', 0),
+(3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', 'Both', 35, '00:00:20', 60, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg', '2021-01-14 11:42:42', 0),
+(4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', 'Long Term', 35, '00:00:18', 60, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg', '2021-01-14 11:42:42', 0),
+(5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', 'Both', 35, '00:00:20', 60, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg', '2021-01-14 11:42:42', 0),
+(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg', '2021-01-14 11:42:42', 0);
 
 -- --------------------------------------------------------
 
@@ -347,8 +348,8 @@ CREATE TABLE `food_supplier` (
 --
 
 INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`, `available`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 0),
-(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 0);
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 1),
+(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -443,7 +444,7 @@ CREATE TABLE `notification` (
 INSERT INTO `notification` (`noID`, `email`, `title`, `discription`, `time`, `seen_state`, `type`) VALUES
 (1, 'lakshanamal100@gmail.com', 'Your order Accpeted', '', '00:10:19', 0, 'order'),
 (2, 'lakshanamal100@gmail.com', 'Your order Accpeted', 'Order id :1610224461', '02:04:26', 1, 'accept'),
-(3, 'lakshanamal100@gmail.com', 'Your order Accpeted', 'Order id :1610224920', '02:12:08', 0, 'order');
+(3, 'lakshanamal100@gmail.com', 'Your order Accpeted', 'Order id :1610224920', '02:12:08', 1, 'order');
 
 -- --------------------------------------------------------
 
@@ -579,14 +580,14 @@ CREATE TABLE `payfee` (
   `month` int(12) NOT NULL,
   `amount` int(11) NOT NULL,
   `paidDateTime` datetime NOT NULL DEFAULT current_timestamp(),
-  `cash/card` varchar(11) NOT NULL DEFAULT 'None'
+  `cash_card` varchar(11) NOT NULL DEFAULT 'None'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payfee`
 --
 
-INSERT INTO `payfee` (`payid`, `Bid`, `BOid`, `year`, `month`, `amount`, `paidDateTime`, `cash/card`) VALUES
+INSERT INTO `payfee` (`payid`, `Bid`, `BOid`, `year`, `month`, `amount`, `paidDateTime`, `cash_card`) VALUES
 (1, 1, 1, 2021, 3, 4000, '2021-01-02 16:04:23', 'cash'),
 (2, 37, 3, 2020, 1, 4000, '2021-01-02 16:13:13', 'online'),
 (3, 40, 3, 2020, 9, 4000, '2021-01-02 16:13:21', 'None'),
@@ -974,7 +975,7 @@ ALTER TABLE `confirm_rent`
 -- AUTO_INCREMENT for table `food_post`
 --
 ALTER TABLE `food_post`
-  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `food_request`
