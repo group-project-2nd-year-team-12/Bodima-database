@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 11:12 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Mar 18, 2021 at 01:19 PM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -324,8 +323,8 @@ INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `las
 (787, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616058998, 540, 755535393, 'card', '2021-03-18 14:46:38', '2021-03-18 17:06:38', ''),
 (788, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616059001, 540, 755535393, 'cash', '2021-03-18 14:46:41', '2021-03-18 17:06:41', ''),
 (789, '2018cs030@stu.ucsc.cmb.ac.lk', '310/1,deldasduwa,dodanduwa', 'Gayara', 'Alwis', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616060336, 390, 755535399, 'cash', '2021-03-18 15:08:56', '2021-03-18 15:28:56', ''),
-(791, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616061512, 390, 755535393, 'card', '2021-03-18 15:28:32', '2021-03-18 15:48:32', ''),
-(792, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 1, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616061567, 390, 755535393, 'card', '2021-03-18 15:29:27', '2021-03-18 15:39:41', '');
+(792, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 1, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616061567, 390, 755535393, 'card', '2021-03-18 15:29:27', '2021-03-18 15:39:41', ''),
+(794, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616066306, 390, 112782923, 'cash', '2021-03-18 16:48:26', '2021-03-18 17:08:26', '');
 
 -- --------------------------------------------------------
 
@@ -481,8 +480,24 @@ CREATE TABLE `notifications` (
   `massageHeader` text NOT NULL,
   `massage` text NOT NULL,
   `sendDateTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `redirect_url` text NOT NULL,
   `is_seen` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`notify_id`, `type_number`, `from_level`, `from_id`, `to_level`, `to_id`, `massageHeader`, `massage`, `sendDateTime`, `redirect_url`, `is_seen`) VALUES
+(1, 3, 'boardings_owner', 1, 'boarder', 3, 'Rent Payment Remainder', 'aaaaaaaaaaaaaaa', '2021-02-12 11:32:58', '', 0),
+(2, 3, 'boardings_owner', 1, 'boarder', 39, 'Rent Payment Remainder', 'February is due. Please pay the rent before 2/23/2021', '2021-02-12 12:00:06', '..controller/orderCon.php', 0),
+(3, 3, 'boardings_owner', 1, 'boarder', 39, 'Rent Payment Remainder', 'March fee payment is due. Please pay the rent before 3/23/2021', '2021-03-17 14:13:02', '../views/myads_boardingowner.php', 0),
+(4, 1, 'food_supplier', 7, 'boarder', 37, 'Order Accepted', 'your has been accepted! order id:111220', '2021-03-18 03:38:09', '', 0),
+(5, 1, 'food_supplier', 1, 'boarder', 37, 'Order Accepted', 'your has been accepted! order id:233229', '2021-03-18 03:39:07', '', 0),
+(6, 2, 'boarder', 37, 'food_supplier', 1, 'New order Arrived', 'New order customer:Amal lakshan, items: 1)rice -2 qty ,bill amount: 1700.00 ', '2021-03-18 03:42:43', '', 0),
+(7, 2, 'boarder', 38, 'food_supplier', 1, 'New order Arrived', 'New order customer:Ramya Rajapaksha, items: 1)koththu -1 qty ,bill amount: 500.00 ', '2021-03-18 03:44:03', '', 0),
+(8, 3, 'boardings_owner', 3, 'boarder', 37, 'Rent Payment Remainder', 'March payment is due. Please pay the rent before 3/21/2021', '2021-03-18 03:51:14', '', 0),
+(9, 3, 'boardings_owner', 3, 'boarder', 38, 'Rent Payment Remainder', 'March payment is due. Please pay the rent before 3/24/2021', '2021-03-18 03:51:48', '', 0);
 
 -- --------------------------------------------------------
 
@@ -588,10 +603,10 @@ INSERT INTO `order_item` (`itemID`, `item_name`, `quantity`, `order_id`) VALUES
 (306, 'Pani Puri ', 1, 1616059001),
 (307, 'Idli ', 1, 1616060336),
 (308, 'Paper Dosai ', 1, 1616060336),
-(312, 'Idli ', 1, 1616061512),
-(313, 'Paper Dosai ', 1, 1616061512),
 (314, 'Idli ', 1, 1616061567),
-(315, 'Paper Dosai ', 1, 1616061567);
+(315, 'Paper Dosai ', 1, 1616061567),
+(318, 'Idli ', 1, 1616066306),
+(319, 'Paper Dosai ', 1, 1616066306);
 
 -- --------------------------------------------------------
 
@@ -725,9 +740,35 @@ CREATE TABLE `set_notification` (
   `from_BOid` int(11) NOT NULL,
   `to_Bid` int(11) NOT NULL,
   `setdate` datetime NOT NULL DEFAULT current_timestamp(),
+  `deadline_date` date NOT NULL,
   `occurance` int(11) NOT NULL,
   `massage` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `set_notification`
+--
+
+INSERT INTO `set_notification` (`set_id`, `from_BOid`, `to_Bid`, `setdate`, `deadline_date`, `occurance`, `massage`) VALUES
+(3, 1, 39, '2021-02-12 10:23:30', '2021-02-25', 0, 'the monthly rent is due. Please pay before 202022222 '),
+(4, 1, 39, '2021-02-15 00:00:00', '0000-00-00', 0, 'February is due. Please pay the rent before 2/15/2021'),
+(5, 1, 39, '2021-02-12 10:30:12', '2021-02-22', 0, 'February is due. Please pay the rent before 2/22/2021'),
+(6, 1, 39, '2021-02-12 11:32:58', '2021-02-23', 0, 'February is due. Please pay the rent before 2/23/2021'),
+(7, 1, 39, '2021-02-12 12:00:06', '2021-02-23', 0, 'February is due. Please pay the rent before 2/23/2021'),
+(8, 1, 39, '2021-03-17 14:13:02', '2021-03-23', 0, 'March fee payment is due. Please pay the rent before 3/23/2021'),
+(9, 3, 37, '2021-03-18 03:51:14', '2021-03-21', 0, 'March payment is due. Please pay the rent before 3/21/2021'),
+(10, 3, 38, '2021-03-18 03:51:48', '2021-03-24', 0, 'March payment is due. Please pay the rent before 3/24/2021');
+
+--
+-- Triggers `set_notification`
+--
+DELIMITER $$
+CREATE TRIGGER `new_payrent_remainder` AFTER INSERT ON `set_notification` FOR EACH ROW BEGIN
+INSERT INTO notifications(type_number,from_level,from_id,to_level,to_id,massageHeader,massage)
+VALUES(3,'boardings_owner',NEW.from_BOid,'boarder' ,NEW.to_Bid,'Rent Payment Remainder',NEW.massage);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -1008,7 +1049,7 @@ ALTER TABLE `food_post`
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=793;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=795;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
@@ -1044,13 +1085,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=320;
 
 --
 -- AUTO_INCREMENT for table `payfee`
@@ -1074,7 +1115,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `set_notification`
 --
 ALTER TABLE `set_notification`
-  MODIFY `set_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `set_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `student`
