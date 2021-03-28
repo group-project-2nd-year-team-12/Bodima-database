@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2021 at 08:12 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: Mar 28, 2021 at 05:58 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -165,20 +165,21 @@ CREATE TABLE `boarding_post` (
   `review` text DEFAULT NULL,
   `keymoney` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `create_time` datetime NOT NULL
+  `create_time` datetime NOT NULL,
+  `is_pay_post` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `boarding_post`
 --
 
-INSERT INTO `boarding_post` (`B_post_id`, `BOid`, `category`, `girlsBoys`, `person_count`, `cost_per_person`, `rating`, `image`, `house_num`, `lane`, `city`, `district`, `description`, `location`, `latitude`, `longitude`, `lifespan`, `post_amount`, `review`, `keymoney`, `title`, `create_time`) VALUES
-(1, 3, 'individual', 'girls', 3, 6000, 45, '../resource/Images/uploaded_boarding/3.jpg', '4', 'mal mawatha', 'Dalthara', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 6.78713, 79.9111, 40, 4000, 'aada', 10000, '', '2021-03-03 06:22:53'),
-(2, 1, 'individual', 'boys', 4, 5500, 30, '../resource/Images/uploaded_boarding/2.jpg', '12/A', 'kammalawaththa mawatha', 'kotuwa', 'Mathara', 'near to university of Ruhuna', 'https://goo.gl/maps/AUW3hP4ryNcxPEvDA', 6.93443, 79.8533, 30, 3000, ' xdgxtdh', 8000, '', '2021-03-07 06:23:08'),
-(3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 6.79502, 79.8997, 50, 5000, ' dfsdsfs', 6000, '', '2021-03-15 06:23:16'),
-(4, 3, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 6.84657, 79.9268, 30, 3000, ' vfgdth', 6000, '', '2021-03-16 06:24:00'),
-(5, 3, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 6.87227, 79.9962, 30, 3000, 'ferge', 15000, '', '2021-03-09 06:24:08'),
-(21, 3, 'Individual', 'AnyOne', 3, 10000, 8, '../resource/Images/uploaded_boarding/1.jpg', '32', 'thurstan  Rd.', 'Thmmulla junction', 'Colombo 7', 'near to university of colombo', '3 Thurstan Rd, Colombo 00700, Sri Lanka', 6.90071, 79.8603, 39, 3900, 'ishan', 20000, 'boarding House for sale', '2021-03-26 03:21:49');
+INSERT INTO `boarding_post` (`B_post_id`, `BOid`, `category`, `girlsBoys`, `person_count`, `cost_per_person`, `rating`, `image`, `house_num`, `lane`, `city`, `district`, `description`, `location`, `latitude`, `longitude`, `lifespan`, `post_amount`, `review`, `keymoney`, `title`, `create_time`, `is_pay_post`) VALUES
+(1, 3, 'individual', 'girls', 3, 6000, 45, '../resource/Images/uploaded_boarding/3.jpg', '4', 'mal mawatha', 'Dalthara', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 6.78713, 79.9111, 40, 4000, 'aada', 10000, '', '2021-03-03 06:22:53', 1),
+(2, 1, 'individual', 'boys', 4, 5500, 30, '../resource/Images/uploaded_boarding/2.jpg', '12/A', 'kammalawaththa mawatha', 'kotuwa', 'Mathara', 'near to university of Ruhuna', 'https://goo.gl/maps/AUW3hP4ryNcxPEvDA', 6.93443, 79.8533, 30, 3000, ' xdgxtdh', 8000, '', '2021-03-07 06:23:08', 1),
+(3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 6.79502, 79.8997, 50, 5000, ' dfsdsfs', 6000, '', '2021-03-15 06:23:16', 1),
+(4, 3, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 6.84657, 79.9268, 30, 3000, ' vfgdth', 6000, '', '2021-03-16 06:24:00', 1),
+(5, 3, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 6.87227, 79.9962, 30, 3000, 'ferge', 15000, '', '2021-03-09 06:24:08', 1),
+(21, 3, 'Individual', 'AnyOne', 3, 10000, 8, '../resource/Images/uploaded_boarding/1.jpg', '32', 'thurstan  Rd.', 'Thmmulla junction', 'Colombo 7', 'near to university of colombo', '3 Thurstan Rd, Colombo 00700, Sri Lanka', 6.90071, 79.8603, 39, 3900, 'ishan', 20000, 'boarding House for sale', '2021-03-26 03:21:49', 1);
 
 -- --------------------------------------------------------
 
@@ -270,19 +271,20 @@ CREATE TABLE `food_post` (
   `post_amount` int(255) NOT NULL,
   `image` text NOT NULL DEFAULT '../resource/Images/h1.jpg',
   `posted_date` datetime NOT NULL DEFAULT current_timestamp(),
-  `blocked` int(11) NOT NULL DEFAULT 0
+  `blocked` int(11) NOT NULL DEFAULT 0,
+  `is_pay_post` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food_post`
 --
 
-INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`, `posted_date`, `blocked`) VALUES
-(2, 1, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', 'Both', 30, '00:00:00', 60, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg', '2021-01-14 11:42:42', 0),
-(3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', 'Both', 35, '00:00:20', 60, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg', '2021-01-14 11:42:42', 0),
-(4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', 'Long Term', 35, '00:00:18', 60, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg', '2021-01-14 11:42:42', 0),
-(5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', 'Both', 35, '00:00:20', 60, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg', '2021-01-14 11:42:42', 0),
-(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg', '2021-01-14 11:42:42', 0);
+INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `address`, `location`, `type`, `rating`, `orderingtimedeadline`, `lifespan`, `post_amount`, `image`, `posted_date`, `blocked`, `is_pay_post`) VALUES
+(2, 1, 'Rasika Food Delivary Service', 'Food for breakfast,lunch and dinner deliver to your home', 'Old road,Maharagama', '', 'Both', 30, '00:00:00', 60, 30000, '../resource/Images/uploaded_foodpost/rice-and-curry-organic.jpg', '2021-01-14 11:42:42', 0, 1),
+(3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', 'Both', 35, '00:00:20', 60, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg', '2021-01-14 11:42:42', 0, 1),
+(4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', 'Long Term', 35, '00:00:18', 60, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg', '2021-01-14 11:42:42', 0, 1),
+(5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', 'Both', 35, '00:00:20', 60, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg', '2021-01-14 11:42:42', 0, 1),
+(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg', '2021-01-14 11:42:42', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -370,7 +372,8 @@ CREATE TABLE `image` (
   `imgid` int(100) NOT NULL,
   `boid` int(100) NOT NULL,
   `postid` int(100) NOT NULL,
-  `image_name` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '../resource/Images/h1.jpg'
+  `image_name` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '../resource/Images/h1.jpg',
+  `is_pay` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -678,31 +681,56 @@ CREATE TABLE `product` (
   `price` double NOT NULL,
   `breakfast` int(11) NOT NULL,
   `lunch` int(11) NOT NULL,
-  `dinner` int(11) NOT NULL
+  `dinner` int(11) NOT NULL,
+  `is_pay` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `price`, `breakfast`, `lunch`, `dinner`) VALUES
-(1, 1, 4, 'Mixed Rice', '../resource/img/product/product1.png', 399.99, 1, 1, 0),
-(2, 1, 4, 'Chicken Rice', '../resource/img/product/product2.jpg', 299.99, 1, 0, 1),
-(5, 2, 2, 'Cheese Kottu', '../resource/img/product/cheesekottu.jpg\r\n', 370, 1, 0, 1),
-(7, 3, 5, 'Chicken Rice large', '../resource/img/product/product1.png\r\n', 530, 0, 1, 1),
-(8, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
-(9, 3, 5, 'Biriani', '../resource/img/product/biriani.jpg\r\n', 230, 0, 1, 1),
-(10, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1),
-(11, 3, 5, 'Parata', '../resource/img/product/parata.jpg\r\n', 65, 0, 0, 1),
-(12, 4, 3, 'Idli', '../resource/img/product/idli.jpg\r\n', 130, 0, 1, 1),
-(13, 4, 3, 'Paper Dosai', '../resource/img/product/paperdosai.jpg\r\n', 260, 0, 1, 1),
-(14, 4, 3, 'Pani Puri', '../resource/img/product/panipuri.jpg\r\n', 150, 0, 1, 1),
-(15, 4, 3, 'Puri', '../resource/img/product/puri.jpg\r\n', 170, 0, 1, 1),
-(29, 1, 21, 'pastry', '../resource/img/product/pastry.jpg', 65, 1, 0, 0),
-(30, 1, 21, 'rolls', '../resource/img/product/rolls.jpg', 50, 1, 0, 0),
-(31, 1, 21, 'sandwich', '../resource/img/product/sandwich.jpg', 100, 0, 1, 0),
-(33, 1, 21, 'burger', '../resource/img/product/burger.jpg', 70, 0, 1, 0),
-(34, 1, 21, 'patties', '../resource/img/product/patties.jpg', 45, 0, 1, 1);
+INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `price`, `breakfast`, `lunch`, `dinner`, `is_pay`) VALUES
+(1, 1, 4, 'Mixed Rice', '../resource/img/product/product1.png', 399.99, 1, 1, 0, 1),
+(2, 1, 4, 'Chicken Rice', '../resource/img/product/product2.jpg', 299.99, 1, 0, 1, 1),
+(5, 2, 2, 'Cheese Kottu', '../resource/img/product/cheesekottu.jpg\r\n', 370, 1, 0, 1, 1),
+(7, 3, 5, 'Chicken Rice large', '../resource/img/product/product1.png\r\n', 530, 0, 1, 1, 1),
+(8, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1, 1),
+(9, 3, 5, 'Biriani', '../resource/img/product/biriani.jpg\r\n', 230, 0, 1, 1, 1),
+(10, 2, 2, 'Nasi goreng Rice', '../resource/img/product/product1.png\r\n', 430, 0, 1, 1, 1),
+(11, 3, 5, 'Parata', '../resource/img/product/parata.jpg\r\n', 65, 0, 0, 1, 1),
+(12, 4, 3, 'Idli', '../resource/img/product/idli.jpg\r\n', 130, 0, 1, 1, 1),
+(13, 4, 3, 'Paper Dosai', '../resource/img/product/paperdosai.jpg\r\n', 260, 0, 1, 1, 1),
+(14, 4, 3, 'Pani Puri', '../resource/img/product/panipuri.jpg\r\n', 150, 0, 1, 1, 1),
+(15, 4, 3, 'Puri', '../resource/img/product/puri.jpg\r\n', 170, 0, 1, 1, 1),
+(29, 1, 21, 'pastry', '../resource/img/product/pastry.jpg', 65, 1, 0, 0, 1),
+(30, 1, 21, 'rolls', '../resource/img/product/rolls.jpg', 50, 1, 0, 0, 1),
+(31, 1, 21, 'sandwich', '../resource/img/product/sandwich.jpg', 100, 0, 1, 0, 1),
+(33, 1, 21, 'burger', '../resource/img/product/burger.jpg', 70, 0, 1, 0, 1),
+(34, 1, 21, 'patties', '../resource/img/product/patties.jpg', 45, 0, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rate`
+--
+
+CREATE TABLE `rate` (
+  `rateId` int(10) NOT NULL,
+  `ratingpostid` int(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `uName` varchar(100) NOT NULL,
+  `uReview` int(10) NOT NULL,
+  `uMsg` varchar(100) NOT NULL,
+  `dReview` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rate`
+--
+
+INSERT INTO `rate` (`rateId`, `ratingpostid`, `email`, `uName`, `uReview`, `uMsg`, `dReview`) VALUES
+(1, 0, '2018cs165@stu.ucsc.cmb.ac.lk', 'hj  ', 3, ' h', '2021-03-27 02:05:17'),
+(2, 0, '2018cs092@stu.ucsc.cmb.ac.lk', 'nimasha ', 3, 'bad', '2021-03-27 08:33:23');
 
 -- --------------------------------------------------------
 
@@ -990,6 +1018,12 @@ ALTER TABLE `product`
   ADD KEY `F-post-id` (`F_post_id`);
 
 --
+-- Indexes for table `rate`
+--
+ALTER TABLE `rate`
+  ADD PRIMARY KEY (`rateId`);
+
+--
 -- Indexes for table `request`
 --
 ALTER TABLE `request`
@@ -1116,6 +1150,12 @@ ALTER TABLE `payfee`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `rate`
+--
+ALTER TABLE `rate`
+  MODIFY `rateId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `request`
