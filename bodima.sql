@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2021 at 05:58 AM
+-- Generation Time: Mar 28, 2021 at 07:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -179,7 +179,8 @@ INSERT INTO `boarding_post` (`B_post_id`, `BOid`, `category`, `girlsBoys`, `pers
 (3, 1, 'room', 'girls', 2, 7000, 70, '../resource/Images/uploaded_boarding/9.jpg', '4', 'mal mawatha', 'Moratuwa', 'Colombo', 'near to university of Moratuwa', 'https://goo.gl/maps/LtzP1M2NrkFUHpMb6', 6.79502, 79.8997, 50, 5000, ' dfsdsfs', 6000, '', '2021-03-15 06:23:16', 1),
 (4, 3, 'room', 'boys', 3, 6500, 60, '../resource/Images/uploaded_boarding/4.jpg', '111/A', 'kammalawaththa mawatha', 'Maharagama', 'Colombo', 'near to university of jayawardhanapura', 'https://goo.gl/maps/9Rj41yabhqRgW7Mx5', 6.84657, 79.9268, 30, 3000, ' vfgdth', 6000, '', '2021-03-16 06:24:00', 1),
 (5, 3, 'room', 'girls', 2, 3500, 20, '../resource/Images/uploaded_boarding/1.jpg', '90', 'Athurugiriya Road', 'Athurugiriya', 'Colombo', 'near SLLIT', NULL, 6.87227, 79.9962, 30, 3000, 'ferge', 15000, '', '2021-03-09 06:24:08', 1),
-(21, 3, 'Individual', 'AnyOne', 3, 10000, 8, '../resource/Images/uploaded_boarding/1.jpg', '32', 'thurstan  Rd.', 'Thmmulla junction', 'Colombo 7', 'near to university of colombo', '3 Thurstan Rd, Colombo 00700, Sri Lanka', 6.90071, 79.8603, 39, 3900, 'ishan', 20000, 'boarding House for sale', '2021-03-26 03:21:49', 1);
+(21, 3, 'Individual', 'AnyOne', 3, 10000, 8, '../resource/Images/uploaded_boarding/1.jpg', '32', 'thurstan  Rd.', 'Thmmulla junction', 'Colombo 7', 'near to university of colombo', '3 Thurstan Rd, Colombo 00700, Sri Lanka', 6.90071, 79.8603, 39, 3900, 'ishan', 20000, 'boarding House for sale', '2021-03-26 03:21:49', 1),
+(30, 1, 'RoomOrHome', 'AnyOne', 5, 16000, 8, '../resource/Images/uploaded_boarding/5.jpg', 'Pushpawila', 'Kananke Kadawediya', 'Kanaknke', 'Matara', 'near to university of ruhuna', 'E01, Palatuwa, Sri Lanka', 5.99292, 80.5178, 50, 5000, 'ishan', 18000, 'house', '2021-03-28 03:15:46', 1);
 
 -- --------------------------------------------------------
 
@@ -284,7 +285,8 @@ INSERT INTO `food_post` (`F_post_id`, `FSid`, `ad_title`, `description`, `addres
 (3, 7, 'Sri Ragavas Restaurant', 'All tamil and indian food -vegetarian food', 'No 35,Highlevel road, Maharagama', '', 'Both', 35, '00:00:20', 60, 6000, '../resource/Images/uploaded_foodpost/maxresdefault.jpg', '2021-01-14 11:42:42', 0, 1),
 (4, 1, 'Nelum Kole Food court', 'game kaama game rasata', 'Highlevel road, Nugegoda', '', 'Long Term', 35, '00:00:18', 60, 6000, '../resource/Images/uploaded_foodpost/nelum kole.jpg', '2021-01-14 11:42:42', 0, 1),
 (5, 7, 'Ajith Hotel & Delivary', 'breakfast,lunch and dinner family restaurant', 'No 111,Nugegoda', '', 'Both', 35, '00:00:20', 60, 5000, '../resource/Images/uploaded_foodpost/ajith hotel.jpg', '2021-01-14 11:42:42', 0, 1),
-(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg', '2021-01-14 11:42:42', 0, 1);
+(21, 7, 'Ranasiri Bakery', 'For breakfast,lunch and dinner delivery to your home.', 'sisil Mawatha,Wijayaraama', '', 'Short Term', 1, '09:31:00', 30, 3000, '../resource/Images/uploaded_foodpost/bakery.jpg', '2021-01-14 11:42:42', 0, 1),
+(24, 1, 'nimash', '', 'pushpawila kanake kadawediya,kanakke', 'Kanake', 'Both', 1, '21:00:00', 32, 3200, '../resource/Images/uploaded_foodpost/defaultfp1.png', '2021-03-28 18:56:03', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -322,7 +324,6 @@ INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `las
 (781, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 4, 'shortTerm', 'lunch', 'now', 'Sri Ragavas Restaurant', 3, 1616022649, 130, 755535393, 'card', '2021-03-18 04:40:49', '2021-03-18 04:50:58', '02:30:14pm'),
 (782, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 4, 'shortTerm', 'lunch', 'now', 'Sri Ragavas Restaurant', 3, 1616044033, 390, 755535393, 'card', '2021-03-18 10:37:13', '2021-03-18 10:47:21', '01:37:53pm'),
 (784, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 5, 'shortTerm', 'lunch', 'now', 'Sri Ragavas Restaurant', 3, 1616058939, 390, 755535393, 'card', '2021-03-18 14:45:39', '2021-04-18 17:05:39', ''),
-(795, '2018cs092@stu.ucsc.cmb.ac.lk', 'Highlevel road, Makumbura', 'anuki', 'De Alwis', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616071195, 390, 112782923, 'card', '2021-03-18 18:09:55', '2021-03-18 18:29:55', ''),
 (807, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 3, 'shortTerm', 'breakfast', 'now', 'Rasika Food Delivary Service', 2, 1616130938, 1110, 112782923, 'cash', '2021-03-19 10:45:38', '2021-03-19 10:56:43', ''),
 (810, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 3, 'shortTerm', 'breakfast', 'now', 'Rasika Food Delivary Service', 2, 1616131306, 370, 112782923, 'cash', '2021-03-19 10:51:46', '2021-03-19 11:03:24', ''),
 (811, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 3, 'shortTerm', 'lunch', 'now', 'Rasika Food Delivary Service', 2, 1616131339, 1720, 112782923, 'cash', '2021-03-19 10:52:19', '2021-03-19 11:10:23', ''),
@@ -330,7 +331,9 @@ INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `las
 (814, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 3, 'shortTerm', 'dinner', 'now', 'Rasika Food Delivary Service', 2, 1616242925, 800, 112782923, 'cash', '2021-03-20 17:52:05', '2021-03-20 18:04:23', ''),
 (815, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 4, 'shortTerm', 'dinner', 'now', 'Rasika Food Delivary Service', 2, 1616243596, 1540, 112782923, 'cash', '2021-03-20 18:03:16', '2021-03-20 18:13:40', '11:11:44am'),
 (817, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 4, 'shortTerm', 'dinner', 'now', 'Rasika Food Delivary Service', 2, 1616244011, 800, 112782923, 'cash', '2021-03-20 18:10:11', '2021-03-20 18:20:31', '11:11:29am'),
-(820, '2018cs030@stu.ucsc.cmb.ac.lk', 'makumbura', 'Gayara', 'Alwis', 0, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616409254, 170, 722222222, 'cash', '2021-03-22 16:04:14', '2021-03-22 16:24:14', '');
+(820, '2018cs030@stu.ucsc.cmb.ac.lk', 'makumbura', 'Gayara', 'Alwis', 3, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616409254, 170, 722222222, 'cash', '2021-03-22 16:04:14', '2021-03-22 16:24:14', ''),
+(822, '2018cs165@stu.ucsc.cmb.ac.lk', 'pushpawila kanake kadawediya,kanakke', 'Supunpraba', 'Nimasha', 4, 'shortTerm', 'dinner', 'now', 'Ajith Hotel ', 5, 1616948944, 530, 716119088, 'card', '2021-03-28 21:59:04', '2021-03-28 22:19:04', '10:00:36pm'),
+(823, '2018cs092@stu.ucsc.cmb.ac.lk', 'ffffewea', 'anuki', 'De Alwis', 4, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616951314, 130, 716119088, 'card', '2021-03-28 22:38:34', '2021-03-28 22:58:34', '10:39:21pm');
 
 -- --------------------------------------------------------
 
@@ -375,6 +378,17 @@ CREATE TABLE `image` (
   `image_name` varchar(255) CHARACTER SET latin1 NOT NULL DEFAULT '../resource/Images/h1.jpg',
   `is_pay` int(10) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `image`
+--
+
+INSERT INTO `image` (`imgid`, `boid`, `postid`, `image_name`, `is_pay`) VALUES
+(18, 1, 30, '../resource/Images/uploaded_boarding/post30img1.jpg', 1),
+(19, 1, 30, '../resource/Images/uploaded_boarding/post30img2.jpg', 1),
+(20, 1, 30, '../resource/Images/uploaded_boarding/post30img4.jpg', 1),
+(21, 1, 30, '../resource/Images/uploaded_boarding/post30img6.jpg', 1),
+(22, 1, 30, '../resource/Images/uploaded_boarding/post30img3.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -508,7 +522,8 @@ INSERT INTO `notifications` (`notify_id`, `type_number`, `from_level`, `from_id`
 (37, 1, 'food_supplier', 1, 'boarder', 37, 'Your Order Accepted', 'Resturant : Rasika Food Delivary Service<br>Order id :1616244730<br>Total amount :370<p style=\"font-size:12px; color:black;\">Please do the card payment', '2021-03-20 18:22:40', '../views/paymentFood_accept.php', 0),
 (38, 3, 'boardings_owner', 1, 'boarder', 39, 'Rent Payment Remainder', 'March is due. Please pay the rent before 3/23/2021', '2021-03-20 18:37:23', '', 0),
 (39, 2, 'boarder', 37, 'food_supplier', 1, 'New order Arrived', 'customer name : kavindya Lakshan<br>order id : 1616247484<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-20 19:08:05', '../views/orders.php', 0),
-(40, 2, 'student', 28, 'food_supplier', 1, 'New order Arrived', 'customer name : Reshmika Ishan<br>order id : 1616420106<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-22 19:05:06', '../views/orders.php', 0);
+(40, 2, 'student', 28, 'food_supplier', 1, 'New order Arrived', 'customer name : Reshmika Ishan<br>order id : 1616420106<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-22 19:05:06', '../views/orders.php', 0),
+(41, 2, 'boardings_owner', 1, 'food_supplier', 7, 'New order Arrived', 'customer name : Supunpraba Nimasha<br>order id : 1616948944<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-28 21:59:04', '../views/orders.php', 0);
 
 -- --------------------------------------------------------
 
@@ -601,8 +616,6 @@ INSERT INTO `order_item` (`itemID`, `item_name`, `quantity`, `order_id`) VALUES
 (292, 'Paper Dosai ', 1, 1616044033),
 (294, 'Idli ', 1, 1616058939),
 (295, 'Paper Dosai ', 1, 1616058939),
-(320, 'Idli ', 1, 1616071195),
-(321, 'Paper Dosai ', 1, 1616071195),
 (333, 'Cheese Kottu ', 3, 1616130938),
 (336, 'Cheese Kottu ', 1, 1616131306),
 (337, 'Nasi goreng Rice ', 4, 1616131339),
@@ -613,7 +626,9 @@ INSERT INTO `order_item` (`itemID`, `item_name`, `quantity`, `order_id`) VALUES
 (343, 'Nasi goreng Rice ', 1, 1616243596),
 (345, 'Cheese Kottu ', 1, 1616244011),
 (346, 'Nasi goreng Rice ', 1, 1616244011),
-(349, 'Puri ', 1, 1616409254);
+(349, 'Puri ', 1, 1616409254),
+(351, 'Chicken Rice large ', 1, 1616948944),
+(352, 'Idli ', 1, 1616951314);
 
 -- --------------------------------------------------------
 
@@ -706,7 +721,8 @@ INSERT INTO `product` (`id`, `FSid`, `F_post_id`, `product_name`, `image`, `pric
 (30, 1, 21, 'rolls', '../resource/img/product/rolls.jpg', 50, 1, 0, 0, 1),
 (31, 1, 21, 'sandwich', '../resource/img/product/sandwich.jpg', 100, 0, 1, 0, 1),
 (33, 1, 21, 'burger', '../resource/img/product/burger.jpg', 70, 0, 1, 0, 1),
-(34, 1, 21, 'patties', '../resource/img/product/patties.jpg', 45, 0, 1, 1, 1);
+(34, 1, 21, 'patties', '../resource/img/product/patties.jpg', 45, 0, 1, 1, 1),
+(36, 1, 24, 'kkjjk', '../resource/Images/uploaded_foodpost/', 9090, 0, 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -729,8 +745,38 @@ CREATE TABLE `rate` (
 --
 
 INSERT INTO `rate` (`rateId`, `ratingpostid`, `email`, `uName`, `uReview`, `uMsg`, `dReview`) VALUES
-(1, 0, '2018cs165@stu.ucsc.cmb.ac.lk', 'hj  ', 3, ' h', '2021-03-27 02:05:17'),
-(2, 0, '2018cs092@stu.ucsc.cmb.ac.lk', 'nimasha ', 3, 'bad', '2021-03-27 08:33:23');
+(1, 0, '2018cs165@stu.ucsc.cmb.ac.lk', 'num ggsr', 2, '5g4h4', '2021-03-28 04:26:12'),
+(2, 0, '2018cs092@stu.ucsc.cmb.ac.lk', 'num ggsr', 2, 'fff', '2021-03-28 05:47:47'),
+(3, 1, '2018cs165@stu.ucsc.cmb.ac.lk', 'nima', 2, 'good', '2021-03-28 04:44:41'),
+(4, 21, '2018cs165@stu.ucsc.cmb.ac.lk', 'nipuni', 2, 'bad', '2021-03-28 04:53:57'),
+(5, 1, '2018cs092@stu.ucsc.cmb.ac.lk', 'num', 3, 'dddd', '2021-03-28 05:41:19'),
+(6, 5, '2018cs092@stu.ucsc.cmb.ac.lk', 'num', 2, 'fdsb', '2021-03-28 05:45:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratefood`
+--
+
+CREATE TABLE `ratefood` (
+  `ratefId` int(10) NOT NULL,
+  `ratingfpostid` int(10) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `ufName` varchar(255) NOT NULL,
+  `ufReview` int(10) NOT NULL,
+  `ufMsg` varchar(255) NOT NULL,
+  `dfReview` datetime(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ratefood`
+--
+
+INSERT INTO `ratefood` (`ratefId`, `ratingfpostid`, `email`, `ufName`, `ufReview`, `ufMsg`, `dfReview`) VALUES
+(1, 24, '2018cs092@stu.ucsc.cmb.ac.lk', 'num', 3, 'cCDSV', '2021-03-28 05:53:34.0'),
+(2, 0, '2018cs092@stu.ucsc.cmb.ac.lk', 'nimasha', 3, 'good', '2021-03-28 07:09:33.0'),
+(3, 3, '2018cs092@stu.ucsc.cmb.ac.lk', 'nimasha', 3, 'good', '2021-03-28 07:12:36.0'),
+(4, 3, '2018cs092@stu.ucsc.cmb.ac.lk', 'nimasha', 3, 'good', '2021-03-28 07:19:34.0');
 
 -- --------------------------------------------------------
 
@@ -1024,6 +1070,12 @@ ALTER TABLE `rate`
   ADD PRIMARY KEY (`rateId`);
 
 --
+-- Indexes for table `ratefood`
+--
+ALTER TABLE `ratefood`
+  ADD PRIMARY KEY (`ratefId`);
+
+--
 -- Indexes for table `request`
 --
 ALTER TABLE `request`
@@ -1077,7 +1129,7 @@ ALTER TABLE `boardings_owner`
 -- AUTO_INCREMENT for table `boarding_post`
 --
 ALTER TABLE `boarding_post`
-  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `B_post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `confirm_rent`
@@ -1089,13 +1141,13 @@ ALTER TABLE `confirm_rent`
 -- AUTO_INCREMENT for table `food_post`
 --
 ALTER TABLE `food_post`
-  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `F_post_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=822;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=824;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
@@ -1107,7 +1159,7 @@ ALTER TABLE `food_supplier`
 -- AUTO_INCREMENT for table `image`
 --
 ALTER TABLE `image`
-  MODIFY `imgid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `imgid` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `livesupport`
@@ -1131,13 +1183,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
 
 --
 -- AUTO_INCREMENT for table `payfee`
@@ -1149,13 +1201,19 @@ ALTER TABLE `payfee`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `rate`
 --
 ALTER TABLE `rate`
-  MODIFY `rateId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `rateId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `ratefood`
+--
+ALTER TABLE `ratefood`
+  MODIFY `ratefId` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `request`
