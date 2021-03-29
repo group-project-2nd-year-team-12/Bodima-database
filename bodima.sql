@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2021 at 07:55 PM
+-- Generation Time: Mar 29, 2021 at 04:59 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,6 +33,7 @@ CREATE TABLE `administrator` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `level` varchar(20) NOT NULL DEFAULT 'administrator',
+  `merchent_id` int(25) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `address` varchar(250) NOT NULL,
@@ -43,8 +45,8 @@ CREATE TABLE `administrator` (
 -- Dumping data for table `administrator`
 --
 
-INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `first_name`, `last_name`, `address`, `profileimage`, `user_accepted`) VALUES
-(1, 'boadima7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 'Amal', 'Lakshan', '', '', 1);
+INSERT INTO `administrator` (`a_id`, `email`, `password`, `level`, `merchent_id`, `first_name`, `last_name`, `address`, `profileimage`, `user_accepted`) VALUES
+(1, 'boadima7@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'administrator', 1216956, 'Amal', 'Lakshan', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -68,20 +70,29 @@ CREATE TABLE `boarder` (
   `gender` varchar(10) NOT NULL,
   `telephone` text NOT NULL,
   `user_accepted` int(1) NOT NULL,
-  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg',
+  `reg_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boarder`
 --
 
-INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`, `profileimage`) VALUES
-(37, 'lakshanamal100@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'kavindya', 'Lakshan', 'boarder', 'Kamburupitiya', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822545', 1, '../resource/Images/uploaded_profile_Image/myteddy.jpg'),
-(38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1, '../resource/Images/a.jpg'),
-(39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  Gampaha', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1, '../resource/Images/b.jpg'),
-(40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1, '../resource/Images/a.jpg'),
-(47, 'nelara@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'nelara', 'sanviduni', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Girl', '0715822454', 1, '../resource/Images/a.jpg'),
-(48, 'banda@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'banda', 'aaa', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg');
+INSERT INTO `boarder` (`Bid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `address`, `location_link`, `NIC`, `image`, `institute`, `gender`, `telephone`, `user_accepted`, `profileimage`, `reg_date`) VALUES
+(37, 'lakshanamal100@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'kavindya', 'Lakshan', 'boarder', 'Kamburupitiya', '  ', '970920918v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822545', 1, '../resource/Images/uploaded_profile_Image/myteddy.jpg', '2021-03-15'),
+(38, 'ramya@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'Ramya', 'Rajapaksha', 'boarder', '  ', '  ', '966661788v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Girl', '0715823454', 1, '../resource/Images/a.jpg', '2021-03-08'),
+(39, 'thinuli@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'Thinuli', 'Gothatuwa', 'boarder', '  Gampaha', '  ', '966611444v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715822421', 1, '../resource/Images/b.jpg', '2021-02-22'),
+(40, 'yamuna@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'Yamuna', 'Rajakaruna', 'boarder', '  ', '  ', '966511965v', '../resource/nicImage/about.jpg', 'University Of Colombo', 'Boy', '0715828954', 1, '../resource/Images/a.jpg', '2021-02-23'),
+(47, 'nelara@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'nelara', 'sanviduni', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Girl', '0715822454', 1, '../resource/Images/a.jpg', '2021-01-11'),
+(48, 'banda@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'banda', 'aaa', 'boarder', '  ', '  ', '', '../resource/nicImage/', 'University Of Colombo', 'Boy', '0715822454', 1, '../resource/Images/d.jpg', '2021-01-31');
+
+--
+-- Triggers `boarder`
+--
+DELIMITER $$
+CREATE TRIGGER `regDateboarder` BEFORE INSERT ON `boarder` FOR EACH ROW SET NEW.reg_date = NOW()
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -123,19 +134,28 @@ CREATE TABLE `boardings_owner` (
   `level` varchar(50) NOT NULL DEFAULT 'boardings_owner',
   `NIC` varchar(12) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `location_link` text NOT NULL,
+  `merchent_id` int(25) NOT NULL,
   `account_no` int(11) NOT NULL,
   `user_accepted` int(1) NOT NULL,
-  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg',
+  `reg_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `boardings_owner`
 --
 
-INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `account_no`, `user_accepted`, `profileimage`) VALUES
-(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'Nimasha', 'boardings_owner', '', '310/1 ,Delgasduwa, Nuwaraeliya', '', 0, 1, '../resource/Images/uploaded_profile_Image/myteddy.jpg'),
-(3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 'aaaaaa', 0, 1, '../resource/Images/a.jpg');
+INSERT INTO `boardings_owner` (`BOid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `merchent_id`, `account_no`, `user_accepted`, `profileimage`, `reg_date`) VALUES
+(1, '2018cs165@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'b6c351c2372493439a8aa6b377555ac4ab2a50d2c6a03fb88a8871c4e36ade089bcb431256df5c6c36ec92eadd77b4cb6c72', 'Supunpraba', 'Nimasha', 'boardings_owner', '', '310/1 ,Delgasduwa, Nuwaraeliya', 0, 0, 1, '../resource/Images/uploaded_profile_Image/myteddy.jpg', '2021-01-05'),
+(3, 'anugaya.alwis@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'd41723e5c9ad1dadaf1e88d15c401b38116a0a0f2cb1022731444c6a8d50d5b4ff1d95b76a4d616afff06e55ef80bd227b6a', 'Anuki', 'Alwis', 'boardings_owner', '988581682v', 'Highlevel road, Makumbura', 0, 0, 1, '../resource/Images/a.jpg', '2021-03-08');
+
+--
+-- Triggers `boardings_owner`
+--
+DELIMITER $$
+CREATE TRIGGER `regDatebordingOwner` BEFORE INSERT ON `boardings_owner` FOR EACH ROW SET NEW.reg_date = NOW()
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -303,7 +323,7 @@ CREATE TABLE `food_request` (
   `is_accepted` int(1) NOT NULL,
   `term` varchar(10) NOT NULL DEFAULT 'shortTerm',
   `order_type` varchar(10) NOT NULL,
-  `shedule` varchar(10) NOT NULL,
+  `shedule` varchar(20) NOT NULL,
   `restaurant` varchar(50) NOT NULL,
   `F_post_id` int(11) NOT NULL,
   `order_id` int(50) NOT NULL,
@@ -333,7 +353,9 @@ INSERT INTO `food_request` (`request_id`, `email`, `address`, `first_name`, `las
 (817, 'lakshanamal100@gmail.com', 'Highlevel road, Makumbura', 'kavindya', 'Lakshan', 4, 'shortTerm', 'dinner', 'now', 'Rasika Food Delivary Service', 2, 1616244011, 800, 112782923, 'cash', '2021-03-20 18:10:11', '2021-03-20 18:20:31', '11:11:29am'),
 (820, '2018cs030@stu.ucsc.cmb.ac.lk', 'makumbura', 'Gayara', 'Alwis', 3, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616409254, 170, 722222222, 'cash', '2021-03-22 16:04:14', '2021-03-22 16:24:14', ''),
 (822, '2018cs165@stu.ucsc.cmb.ac.lk', 'pushpawila kanake kadawediya,kanakke', 'Supunpraba', 'Nimasha', 4, 'shortTerm', 'dinner', 'now', 'Ajith Hotel ', 5, 1616948944, 530, 716119088, 'card', '2021-03-28 21:59:04', '2021-03-28 22:19:04', '10:00:36pm'),
-(823, '2018cs092@stu.ucsc.cmb.ac.lk', 'ffffewea', 'anuki', 'De Alwis', 4, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616951314, 130, 716119088, 'card', '2021-03-28 22:38:34', '2021-03-28 22:58:34', '10:39:21pm');
+(823, '2018cs092@stu.ucsc.cmb.ac.lk', 'ffffewea', 'anuki', 'De Alwis', 4, 'shortTerm', 'dinner', 'now', 'Sri Ragavas Restaurant', 3, 1616951314, 130, 716119088, 'card', '2021-03-28 22:38:34', '2021-03-28 22:58:34', '10:39:21pm'),
+(824, 'lakshanamal100@gmail.com', '67/2,panvila,hikkaduwa', 'kavindya', 'Lakshan', 1, 'shortTerm', 'breakfast', '8:30 AM-9:00 AM', 'Rasika Food Delivary Service', 2, 1616985680, 1110, 755535393, 'card', '2021-03-29 08:11:20', '2021-03-29 08:22:27', ''),
+(825, '2018cs092@stu.ucsc.cmb.ac.lk', '67/2,panvila,hikkaduwa', 'anuki', 'De Alwis', 3, 'longTerm', 'breakfast', '8:30 AM-9:00 AM', 'Rasika Food Delivary Service', 2, 1616985799, 370, 755535393, 'cash', '2021-03-29 08:13:19', '2021-03-29 08:23:50', '');
 
 -- --------------------------------------------------------
 
@@ -351,19 +373,28 @@ CREATE TABLE `food_supplier` (
   `level` varchar(25) NOT NULL DEFAULT 'food_supplier',
   `NIC` varchar(12) NOT NULL,
   `address` varchar(250) NOT NULL,
-  `location_link` int(11) NOT NULL,
+  `merchent_id` int(25) NOT NULL,
   `user_accepted` int(1) NOT NULL,
   `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg',
-  `available` int(1) NOT NULL
+  `available` int(1) NOT NULL,
+  `reg_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `food_supplier`
 --
 
-INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `location_link`, `user_accepted`, `profileimage`, `available`) VALUES
-(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 1),
-(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 1);
+INSERT INTO `food_supplier` (`FSid`, `email`, `password`, `token`, `first_name`, `last_name`, `level`, `NIC`, `address`, `merchent_id`, `user_accepted`, `profileimage`, `available`, `reg_date`) VALUES
+(1, '2018cs092@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e5d8bae050c5853900781845961896bdf61b4d0be5706ed79cb0e0011b4bc33a8b208918cdb57410f218123695b19841606b', 'anuki', 'De Alwis', 'food_supplier', '0', 'Makumbura, Kottawa', 0, 1, '../resource/Images/b.jpg', 1, '2021-03-15'),
+(7, '2018cs030@stu.ucsc.cmb.ac.lk', '7c4a8d09ca3762af61e59520943dc26494f8941b', '004fe1780e38ac7134efec2bfc5ab0eca9bbe63bb635838e8734bd8f8672d3422c3c6187249229cb4286d9f378665169b245', 'Gayara', 'Alwis', 'food_supplier', '988581682v', 'Highlevel road, Makumbura', 0, 1, '../resource/Images/a.jpg', 1, '2021-02-22');
+
+--
+-- Triggers `food_supplier`
+--
+DELIMITER $$
+CREATE TRIGGER `regDatefoodSupplier` BEFORE INSERT ON `food_supplier` FOR EACH ROW SET NEW.reg_date = NOW()
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -411,25 +442,7 @@ CREATE TABLE `livesupport` (
 
 INSERT INTO `livesupport` (`cId`, `admin`, `user`, `sender`, `sender_name`, `message`) VALUES
 (171, 'boadima7@gmail.com', '2018cs092@stu.ucsc.cmb.ac.lk', 'boadima7@gmail.com', 'Amal Lakshan', 'What can i do for you ?'),
-(172, 'boadima7@gmail.com', '2018cs092@stu.ucsc.cmb.ac.lk', '2018cs092@stu.ucsc.cmb.ac.lk', 'anuki De Alwis', 'how can i place a order ?'),
-(173, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(174, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(175, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(176, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(177, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(178, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', ''),
-(179, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'jk'),
-(180, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'sd'),
-(181, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'df'),
-(182, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'ay bn'),
-(183, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'oubn'),
-(184, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'nbbjx'),
-(185, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'bhjbzx'),
-(186, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'oo kiyapan'),
-(187, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'd'),
-(188, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'cv'),
-(189, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'gh'),
-(190, 'boadima7@gmail.com', 'lakshanamal100@gmail.com', 'lakshanamal100@gmail.com', 'kavindya Lakshan', 'dfg');
+(172, 'boadima7@gmail.com', '2018cs092@stu.ucsc.cmb.ac.lk', '2018cs092@stu.ucsc.cmb.ac.lk', 'anuki De Alwis', 'how can i place a order ?');
 
 -- --------------------------------------------------------
 
@@ -458,7 +471,9 @@ INSERT INTO `longterm` (`ltID`, `day`, `delivery_state`, `deliveredTime`, `order
 (586, '2021-03-23 00:00:00', 0, '0000-00-00 00:00:00', 1616058967),
 (587, '2021-03-24 00:00:00', 0, '0000-00-00 00:00:00', 1616058967),
 (588, '2021-03-25 00:00:00', 0, '0000-00-00 00:00:00', 1616058967),
-(589, '2021-03-26 00:00:00', 0, '0000-00-00 00:00:00', 1616058967);
+(589, '2021-03-26 00:00:00', 0, '0000-00-00 00:00:00', 1616058967),
+(590, '2021-03-30 00:00:00', 0, '0000-00-00 00:00:00', 1616985799),
+(591, '2021-03-31 00:00:00', 0, '0000-00-00 00:00:00', 1616985799);
 
 -- --------------------------------------------------------
 
@@ -523,7 +538,8 @@ INSERT INTO `notifications` (`notify_id`, `type_number`, `from_level`, `from_id`
 (38, 3, 'boardings_owner', 1, 'boarder', 39, 'Rent Payment Remainder', 'March is due. Please pay the rent before 3/23/2021', '2021-03-20 18:37:23', '', 0),
 (39, 2, 'boarder', 37, 'food_supplier', 1, 'New order Arrived', 'customer name : kavindya Lakshan<br>order id : 1616247484<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-20 19:08:05', '../views/orders.php', 0),
 (40, 2, 'student', 28, 'food_supplier', 1, 'New order Arrived', 'customer name : Reshmika Ishan<br>order id : 1616420106<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-22 19:05:06', '../views/orders.php', 0),
-(41, 2, 'boardings_owner', 1, 'food_supplier', 7, 'New order Arrived', 'customer name : Supunpraba Nimasha<br>order id : 1616948944<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-28 21:59:04', '../views/orders.php', 0);
+(41, 2, 'boardings_owner', 1, 'food_supplier', 7, 'New order Arrived', 'customer name : Supunpraba Nimasha<br>order id : 1616948944<p style=\"font-size:12px; color:black;\">Accept the order before timeout!</p>', '2021-03-28 21:59:04', '../views/orders.php', 0),
+(43, 1, 'food_supplier', 1, 'boarder', 37, 'Your Order Accepted', 'Resturant : Rasika Food Delivary Service<br>Order id :1616985680<br>Total amount :1110<p style=\"font-size:12px; color:black;\">Please do the card payment', '2021-03-29 08:12:27', '../views/paymentFood_accept.php', 0);
 
 -- --------------------------------------------------------
 
@@ -628,7 +644,9 @@ INSERT INTO `order_item` (`itemID`, `item_name`, `quantity`, `order_id`) VALUES
 (346, 'Nasi goreng Rice ', 1, 1616244011),
 (349, 'Puri ', 1, 1616409254),
 (351, 'Chicken Rice large ', 1, 1616948944),
-(352, 'Idli ', 1, 1616951314);
+(352, 'Idli ', 1, 1616951314),
+(353, 'Cheese Kottu ', 3, 1616985680),
+(354, 'Cheese Kottu ', 1, 1616985799);
 
 -- --------------------------------------------------------
 
@@ -873,24 +891,33 @@ CREATE TABLE `student` (
   `NIC` varchar(15) NOT NULL,
   `address` varchar(250) NOT NULL,
   `user_accepted` int(2) NOT NULL,
-  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg'
+  `profileimage` text NOT NULL DEFAULT '../resource/Images/a.jpg',
+  `reg_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`, `profileimage`) VALUES
-(28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', 'Galle', 1, '../resource/Images/d.jpg'),
-(29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1, '../resource/Images/d.jpg'),
-(38, 'nimashasupunpraba@gmail.com', 'Nimashaa', 'Supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', 'dalthara', 1, '../resource/Images/a.jpg'),
-(39, 'diyana@gmail.com', 'Diyana', 'Fernando', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'student', '970920918v', '', 3, '../resource/Images/b.jpg'),
-(40, 'ramya@gmail.com', 'Ramya', 'Rajapaksha', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'student', '966661788v', '', 3, '../resource/Images/a.jpg'),
-(41, 'thinuli@gmail.com', 'Thinuli', 'Gothatuwa', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'student', '966611444v', '', 3, '../resource/Images/a.jpg'),
-(42, 'yamuna@gmail.com', 'Yamuna', 'Rajakaruna', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'student', '966511965v', '', 3, '../resource/Images/a.jpg'),
-(43, 'dilshan@gmail.com', 'dilshan', 'lakshitha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '09e629a6f8776b583f8da63422ca519f8f668af9f39f05c246d8039218340552057c7ea67a3e56974beea5c9629b7c67457b', 'student', '940900918v', '', 1, '../resource/Images/c.jpg'),
-(44, 'nelara@gmail.com', 'nelara', 'sanviduni', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'student', '970900918v', '', 3, '../resource/Images/a.jpg'),
-(45, 'banda@gmail.com', 'banda', 'aaa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'student', '960900988v', '', 3, '../resource/Images/d.jpg');
+INSERT INTO `student` (`Reg_id`, `email`, `first_name`, `last_name`, `password`, `token`, `level`, `NIC`, `address`, `user_accepted`, `profileimage`, `reg_date`) VALUES
+(28, 'reshmikaediriweera1997@gmail.com', 'Reshmika', 'Ishan', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'e07a3d7cfe211c5f3d7bf716aeb1a413a02227f09a71b064f73e70dfa8026da0f36650c963e14a8357851655cbe33f2cf42c', 'student', '971741546V', 'Galle', 1, '../resource/Images/d.jpg', '2021-03-08'),
+(29, '2018cs139@stu.ucsc.cmb.ac.lk', 'Ishan', 'Ediriweera', '7c4a8d09ca3762af61e59520943dc26494f8941b', '253ebf85d687a348f527b5cfafa2817273aeab6fa50ca2e1a497fe2cb351b47c91bc6d07e80b614ed69bd09da186fd90320c', 'student', '960900918v', '', 1, '../resource/Images/d.jpg', '2021-03-22'),
+(38, 'nimashasupunpraba@gmail.com', 'Nimashaa', 'Supunprabha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0cae3d20b93991b9b0165535046ce915a354fbf2dd3b44eaf172ee09cd50ed172c8f64e352c089e3f8ac9a51f4cb7c5af9cc', 'student', '964455666v', 'dalthara', 1, '../resource/Images/a.jpg', '2021-02-15'),
+(39, 'diyana@gmail.com', 'Diyana', 'Fernando', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ff71a4724331ffdefe84434f8cce3ab1593094d8c766535064868846a6e6aa3a4000076417126684a0c96a0da9566f3e4649', 'student', '970920918v', '', 3, '../resource/Images/b.jpg', '2021-02-16'),
+(40, 'ramya@gmail.com', 'Ramya', 'Rajapaksha', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ccfe9538e548b63dfe9bf4fe536b6f959c585b6716f6d41ab6fd3fc401a0e13cac0e9f31fefd194f76f9aecd8dd753f2b995', 'student', '966661788v', '', 3, '../resource/Images/a.jpg', '2021-03-01'),
+(41, 'thinuli@gmail.com', 'Thinuli', 'Gothatuwa', '7c4a8d09ca3762af61e59520943dc26494f8941b', '249136a000c90d67ab6f1ced3604c7879dd4d70c109d810255d5c2eb13d433097ff08a57022b92af46801a7715d8fe0b627d', 'student', '966611444v', '', 3, '../resource/Images/a.jpg', '2021-01-03'),
+(42, 'yamuna@gmail.com', 'Yamuna', 'Rajakaruna', '7c4a8d09ca3762af61e59520943dc26494f8941b', '10d66b29e2f3faed7777581e3d06f7ec46471c02b0d8fa3e48a5f69909fa846a414bf520753cfcf109da02efb11493e7ad79', 'student', '966511965v', '', 3, '../resource/Images/a.jpg', '2021-03-02'),
+(43, 'dilshan@gmail.com', 'dilshan', 'lakshitha', '7c4a8d09ca3762af61e59520943dc26494f8941b', '09e629a6f8776b583f8da63422ca519f8f668af9f39f05c246d8039218340552057c7ea67a3e56974beea5c9629b7c67457b', 'student', '940900918v', '', 1, '../resource/Images/c.jpg', '2021-01-05'),
+(44, 'nelara@gmail.com', 'nelara', 'sanviduni', '7c4a8d09ca3762af61e59520943dc26494f8941b', '9d08b53cdd50e460431b197b9bc37716347cfcc29a4bbf73d9c2236a98b167a59bff21ac5814251ef57bfb0f4674f1c2db63', 'student', '970900918v', '', 3, '../resource/Images/a.jpg', '2021-01-12'),
+(45, 'banda@gmail.com', 'banda', 'aaa', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ce4c43a7050c8dc1a6b0d07b8abcb8e1bd167ad132cb78cf4ebf943eac4e6b4f19a54a134c161a7d6c377656c3a56e27da25', 'student', '960900988v', '', 3, '../resource/Images/d.jpg', '2021-02-16');
+
+--
+-- Triggers `student`
+--
+DELIMITER $$
+CREATE TRIGGER `regDate` BEFORE INSERT ON `student` FOR EACH ROW SET NEW.reg_date = NOW()
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables
@@ -1111,7 +1138,7 @@ ALTER TABLE `administrator`
 -- AUTO_INCREMENT for table `boarder`
 --
 ALTER TABLE `boarder`
-  MODIFY `Bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `Bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `boarderparent`
@@ -1123,7 +1150,7 @@ ALTER TABLE `boarderparent`
 -- AUTO_INCREMENT for table `boardings_owner`
 --
 ALTER TABLE `boardings_owner`
-  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `BOid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `boarding_post`
@@ -1147,13 +1174,13 @@ ALTER TABLE `food_post`
 -- AUTO_INCREMENT for table `food_request`
 --
 ALTER TABLE `food_request`
-  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=824;
+  MODIFY `request_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=826;
 
 --
 -- AUTO_INCREMENT for table `food_supplier`
 --
 ALTER TABLE `food_supplier`
-  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `FSid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `image`
@@ -1171,7 +1198,7 @@ ALTER TABLE `livesupport`
 -- AUTO_INCREMENT for table `longterm`
 --
 ALTER TABLE `longterm`
-  MODIFY `ltID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=590;
+  MODIFY `ltID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=592;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -1183,13 +1210,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `notify_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+  MODIFY `itemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
 
 --
 -- AUTO_INCREMENT for table `payfee`
@@ -1231,7 +1258,7 @@ ALTER TABLE `set_notification`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `Reg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables
